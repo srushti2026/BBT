@@ -21,7 +21,10 @@ public class TestSuiteHooks {
     WebDriver driver = DriverManager.startDriver();
     driver.get(TestConfig.BASE_URL);
     Waits.waitForPageReady(driver, Duration.ofSeconds(TestConfig.PAGE_LOAD_TIMEOUT_SECONDS));
-    new LoginPage(driver).login(TestConfig.EMAIL, TestConfig.PASSWORD);
+  LoginPage loginPage = new LoginPage(driver);
+  loginPage.clickLoginButton();
+  Waits.pauseAfterAction();
+  loginPage.login(TestConfig.EMAIL, TestConfig.PASSWORD);
     Waits.pauseAfterAction();
     Waits.waitForPageReady(driver, Duration.ofSeconds(TestConfig.PAGE_LOAD_TIMEOUT_SECONDS));
     new DashboardPage(driver).waitForLoaded();

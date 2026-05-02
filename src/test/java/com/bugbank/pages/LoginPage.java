@@ -1,6 +1,7 @@
 package com.bugbank.pages;
 
 import com.bugbank.config.TestConfig;
+import com.bugbank.config.Waits;
 import com.bugbank.util.ElementFinder;
 import java.time.Duration;
 import java.util.Arrays;
@@ -12,29 +13,27 @@ import org.testng.Assert;
 
 public class LoginPage {
   private final WebDriver driver;
+  private final By loginButtonId = By.xpath("//*[@id='btn-login']");
+  private final By loginButtonFullXpath = By.xpath("/html/body/div[3]/div[2]/button[1]");
+  private final By loginButtonClass = By.cssSelector(".btn-landing.btn-primary-land");
 
   public LoginPage(WebDriver driver) {
     this.driver = driver;
   }
 
    public void login(String email, String password) {
-      ensureLoginModalOpen();
+    ensureLoginModalOpen();
       com.bugbank.config.Waits.pauseAfterAction();
-
-      WebElement emailField = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
-          By.xpath("//input[@type='email']"),
-          By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]"),
-          By.xpath("//input[contains(translate(@name,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]")),
-          Duration.ofSeconds(TestConfig.LONG_WAIT_SECONDS));
+    WebElement emailField = waitForLoginEmailField();
       emailField.clear();
       com.bugbank.config.Waits.pauseAfterAction();
       emailField.sendKeys(email);
       com.bugbank.config.Waits.pauseAfterAction();
 
-      WebElement passwordField = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
-          By.xpath("//input[@type='password']"),
-          By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'password')]")),
-          Duration.ofSeconds(TestConfig.LONG_WAIT_SECONDS));
+    WebElement passwordField = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+      By.xpath("//input[@type='password']"),
+      By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'password')]") ),
+      Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
       passwordField.clear();
       com.bugbank.config.Waits.pauseAfterAction();
       passwordField.sendKeys(password);
@@ -66,13 +65,13 @@ public class LoginPage {
         loginButton = new org.openqa.selenium.support.ui.WebDriverWait(driver,
             Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS))
             .until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(
-                By.id("btn-login")));
+                loginButtonId));
       } catch (Exception e1) {
         // Try by class
         loginButton = new org.openqa.selenium.support.ui.WebDriverWait(driver,
             Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS))
             .until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//button[contains(@class, 'btn-landing') and contains(@class, 'btn-primary-land')]")));
+                loginButtonClass));
       }
       
       if (loginButton != null) {
@@ -89,9 +88,7 @@ public class LoginPage {
 
   public void clickLoginButton() {
      try {
-       // Wait for the button to be clickable using ID 'btn-login'
-       WebElement loginButton = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS))
-           .until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(By.id("btn-login")));
+       WebElement loginButton = waitForLoginButtonClickable();
        
        // Scroll into view
        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginButton);
@@ -156,32 +153,141 @@ public class LoginPage {
    }
 
    private void ensureLoginModalOpen() {
-     try {
-       ElementFinder.findFirstDisplayed(driver, Arrays.asList(
-           By.xpath("//input[@type='email']"),
-           By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]"),
-           By.xpath("//div[contains(@class,'modal-card')]"))
-       , Duration.ofSeconds(3));
+     if (isLoginModalVisible()) {
        return;
-     } catch (Exception ignored) {
-       // If login UI is not visible quickly, try opening the modal.
      }
 
-      WebElement loginOpenButton = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
-          By.id("btn-login"),
-          By.xpath("//button[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'login')]")),
-          Duration.ofSeconds(TestConfig.LONG_WAIT_SECONDS));
+    WebElement loginOpenButton = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+      loginButtonFullXpath,
+      loginButtonId,
+      loginButtonClass,
+      By.xpath("//button[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'login')]") ),
+      Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
 
       if (!driver.findElements(By.xpath("//div[contains(@class,'modal-card')]")).isEmpty()) {
         return;
       }
 
-      // Scroll into view
-      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginOpenButton);
-      com.bugbank.config.Waits.pauseAfterAction();
-      
-      // Click the login open button
-      ((JavascriptExecutor) driver).executeScript("arguments[0].click();", loginOpenButton);
-      com.bugbank.config.Waits.pauseAfterAction();
+  // Scroll into view
+  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginOpenButton);
+  com.bugbank.config.Waits.pauseAfterAction();
+
+  // Click the login open button
+  ((JavascriptExecutor) driver).executeScript("arguments[0].click();", loginOpenButton);
+  com.bugbank.config.Waits.pauseAfterAction();
+
+      // Verify modal is open (fail fast if it isn't)
+      try {
+        ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+            By.cssSelector(".modal-card input[type='email']"),
+            By.cssSelector(".modal-card input[name*='email']"),
+            By.cssSelector(".modal-card input[id*='email']"),
+            By.xpath("//input[@type='email']"),
+            By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]") ,
+            By.xpath("//div[contains(@class,'modal-card')]")
+        ), Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
+      } catch (Exception e) {
+        // Retry clicking the login button once before failing
+        try {
+          forceClickLoginButton();
+          com.bugbank.config.Waits.pauseAfterAction();
+        } catch (Exception ignoredRetry) {
+          // Ignore
+        }
+        throw new RuntimeException("Login modal did not appear after clicking login button.", e);
+      }
     }
+
+  private boolean isLoginModalVisible() {
+    try {
+      return !driver.findElements(By.cssSelector(".modal-card")).isEmpty()
+          || !driver.findElements(By.xpath("//input[@type='email']")).isEmpty()
+          || !driver.findElements(By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]")).isEmpty();
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
+  private void forceClickLoginButton() {
+    try {
+      ((JavascriptExecutor) driver).executeScript(
+          "var btn=document.evaluate(\"//*[@id='btn-login']\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; if(btn){btn.click();}");
+    } catch (Exception ignored) {
+      // Ignore
+    }
+    try {
+      ((JavascriptExecutor) driver).executeScript(
+          "var btn=document.evaluate(\"/html/body/div[3]/div[2]/button[1]\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; if(btn){btn.click();}");
+    } catch (Exception ignored) {
+      // Ignore
+    }
+    try {
+      ((JavascriptExecutor) driver).executeScript(
+          "var btn=document.querySelector('.btn-landing.btn-primary-land'); if(btn){btn.click();}");
+    } catch (Exception ignored) {
+      // Ignore
+    }
+  }
+
+  private WebElement waitForLoginButtonClickable() {
+    try {
+      return new org.openqa.selenium.support.ui.WebDriverWait(driver,
+          Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS))
+          .until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(loginButtonFullXpath));
+    } catch (Exception ignored) {
+      try {
+        return new org.openqa.selenium.support.ui.WebDriverWait(driver,
+            Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS))
+            .until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(loginButtonId));
+      } catch (Exception ignored2) {
+        return new org.openqa.selenium.support.ui.WebDriverWait(driver,
+            Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS))
+            .until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(loginButtonClass));
+      }
+    }
+  }
+
+  private WebElement waitForLoginEmailField() {
+    try {
+      return ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.cssSelector(".modal-card input[type='email']"),
+          By.cssSelector(".modal-card input[name*='email']"),
+          By.cssSelector(".modal-card input[id*='email']"),
+          By.xpath("//input[@type='email']"),
+          By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]"),
+          By.xpath("//input[contains(translate(@name,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]"),
+          By.xpath("//input[contains(translate(@id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]"),
+          By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'user')]")),
+          Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
+    } catch (Exception e) {
+      try {
+        for (WebElement input : driver.findElements(By.cssSelector(".modal-card input"))) {
+          if (input.isDisplayed()) {
+            return input;
+          }
+        }
+        for (WebElement frame : driver.findElements(By.tagName("iframe"))) {
+          try {
+            driver.switchTo().frame(frame);
+            WebElement iframeInput = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+                By.cssSelector("input[type='email']"),
+                By.cssSelector("input[name*='email']"),
+                By.cssSelector("input[id*='email']"),
+                By.xpath("//input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'email')]")),
+                Duration.ofSeconds(2));
+            if (iframeInput != null) {
+              return iframeInput;
+            }
+          } catch (Exception ignoredFrame) {
+            // Ignore and continue
+          } finally {
+            driver.switchTo().defaultContent();
+          }
+        }
+      } catch (Exception ignored) {
+        // Ignore
+      }
+      throw new RuntimeException("Login email field not found after opening login modal.", e);
+    }
+  }
 }

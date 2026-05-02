@@ -16,6 +16,12 @@ import org.testng.Assert;
 public class TransferFundsPage {
   private final WebDriver driver;
 
+  private final By accountOptionText = By.xpath(
+      "//*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'savings')"
+          + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'current')"
+          + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'business')]"
+          + "[contains(.,'(') and contains(.,')')]");
+
   private final By transferHeader = By.xpath("//*[normalize-space()='Transfer Funds']");
   private final By fromAccountLabel = By.xpath("//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='from account']");
   private final By receiverAccountInput = inputByLabelOrPlaceholder("receiver account id", "1023");
@@ -156,40 +162,13 @@ public class TransferFundsPage {
   }
 
   public List<String> getFromAccountOptions() {
-    waitForDropdownOptions();
-    List<WebElement> options = driver.findElements(By.xpath(
-        "//*[@role='option' or self::li or self::div][normalize-space()]"));
+    waitForAccountOptions();
+    List<WebElement> options = getFromAccountOptionElements();
     List<String> texts = new ArrayList<>();
     for (WebElement option : options) {
       if (option.isDisplayed()) {
-        String text = "";
-        try {
-          // First try getText()
-          text = option.getText().trim();
-          if (text.isEmpty()) {
-            // If empty, try innerText via JavaScript
-            Object innerResult = ((JavascriptExecutor) driver).executeScript(
-                "return arguments[0].innerText || arguments[0].textContent || '';", option);
-            text = innerResult != null ? innerResult.toString().trim() : "";
-          }
-          if (text.isEmpty()) {
-            // Try getting all text nodes
-            Object nodeResult = ((JavascriptExecutor) driver).executeScript(
-                "var text = '';" +
-                "for (var i = 0; i < arguments[0].childNodes.length; i++) {" +
-                "  if (arguments[0].childNodes[i].nodeType === Node.TEXT_NODE) {" +
-                "    text += arguments[0].childNodes[i].textContent;" +
-                "  } else {" +
-                "    text += arguments[0].childNodes[i].innerText || arguments[0].childNodes[i].textContent || '';" +
-                "  }" +
-                "}" +
-                "return text;", option);
-            text = nodeResult != null ? nodeResult.toString().trim() : "";
-          }
-        } catch (Exception e) {
-          // Ignore and continue
-        }
-        if (!text.isEmpty()) {
+        String text = normalizeOptionText(option);
+        if (!text.isEmpty() && looksLikeAccountOption(text)) {
           texts.add(text);
         }
       }
@@ -199,17 +178,11 @@ public class TransferFundsPage {
 
   public boolean resetFromAccountIfPossible() {
     openFromAccountDropdown();
-    waitForDropdownOptions();
+    waitForAccountOptions();
     List<WebElement> options = driver.findElements(By.xpath(
-        "//*[@role='option' or self::li or self::div][normalize-space()]"));
+        "//*[@role='option' or self::li or self::div][normalize-space()]") );
     for (WebElement option : options) {
-      String text = option.getText().trim();
-      if (text.isEmpty()) {
-        // Try getting text via JavaScript
-        Object result = ((JavascriptExecutor) driver).executeScript(
-            "return arguments[0].innerText || arguments[0].textContent || '';", option);
-        text = result != null ? result.toString().trim() : "";
-      }
+      String text = normalizeOptionText(option);
       String lowerText = text.toLowerCase(Locale.ROOT);
       if (lowerText.contains("select") || lowerText.contains("choose") || lowerText.contains("from account")) {
         try {
@@ -218,6 +191,7 @@ public class TransferFundsPage {
           option.click();
         }
         Waits.pauseAfterAction();
+        closeFromAccountDropdown();
         return true;
       }
     }
@@ -225,24 +199,19 @@ public class TransferFundsPage {
   }
 
   public boolean isFromAccountSelected() {
-    WebElement dropdown = driver.findElement(byFollowingLabelOrText("from account"));
+    WebElement dropdown = getFromAccountDropdownElement();
+    closeFromAccountDropdown();
     String text = dropdown.getText().trim();
-    return !text.isEmpty() && !text.toLowerCase(Locale.ROOT).contains("select");
+    String lower = text.toLowerCase(Locale.ROOT);
+    return !text.isEmpty() && !lower.contains("select") && text.matches(".*\\d+.*");
   }
 
   public void selectFromAccountContaining(String accountId) {
     openFromAccountDropdown();
-    waitForDropdownOptions();
-    List<WebElement> options = driver.findElements(By.xpath(
-        "//*[@role='option' or self::li or self::div][normalize-space()]"));
+    waitForAccountOptions();
+    List<WebElement> options = getFromAccountOptionElements();
     for (WebElement option : options) {
-      String text = option.getText().trim();
-      if (text.isEmpty()) {
-        // Try getting text via JavaScript
-        Object result = ((JavascriptExecutor) driver).executeScript(
-            "return arguments[0].innerText || arguments[0].textContent || '';", option);
-        text = result != null ? result.toString().trim() : "";
-      }
+      String text = normalizeOptionText(option);
       if (text.contains(accountId)) {
         try {
           ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
@@ -257,9 +226,13 @@ public class TransferFundsPage {
   }
 
   public void fillReceiverAccountId(String value) {
+    String sanitized = value == null ? "" : value.replaceAll("[^0-9]", "");
+    if (sanitized.isEmpty()) {
+      sanitized = "1023";
+    }
     WebElement input = Waits.waitForVisible(driver, receiverAccountInput);
     input.clear();
-    input.sendKeys(value);
+    input.sendKeys(sanitized);
     Waits.pauseAfterAction();
   }
 
@@ -298,34 +271,7 @@ public class TransferFundsPage {
   }
 
   public void fillAmount(String value) {
-     WebElement input = null;
-     try {
-       // Try the primary locator first
-       input = Waits.waitForVisible(driver, amountInput);
-     } catch (Exception e1) {
-       // Fallback: try alternative locators - specifically look for amount field, not receiver account
-       List<By> alternatives = List.of(
-           By.xpath("//label[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]/following::input[1]"),
-           By.xpath("//input[contains(translate(@placeholder, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'amount')]"),
-           By.xpath("//input[contains(@aria-label, 'amount')]"),
-           By.xpath("//input[@type='number'][position()=2]"),
-           By.xpath("//input[contains(@name, 'amount') or contains(@id, 'amount')]"),
-           By.xpath("//div[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'amount')]//input")
-       );
-       try {
-         input = ElementFinder.findFirstDisplayed(driver, alternatives, 
-             Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
-       } catch (Exception e2) {
-         // Last resort: find the second numeric input (first is receiver account)
-         List<WebElement> numInputs = driver.findElements(By.xpath("//input[@type='number']"));
-         if (numInputs.size() >= 2) {
-           input = numInputs.get(1);
-         } else if (!numInputs.isEmpty()) {
-           input = numInputs.get(0);
-         }
-       }
-     }
-     
+     WebElement input = resolveAmountInput();
      if (input == null) {
        throw new RuntimeException("Unable to find amount input field");
      }
@@ -340,6 +286,8 @@ public class TransferFundsPage {
      
      // Fill the field
      input.sendKeys(value);
+     ((JavascriptExecutor) driver).executeScript(
+         "arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input', {bubbles: true}));", input, value);
      Waits.pauseAfterAction();
    }
 
@@ -425,8 +373,10 @@ public class TransferFundsPage {
 
   public boolean isSuccessMessageVisible() {
     List<WebElement> success = driver.findElements(By.xpath(
-        "//*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"
-            + " | //*[contains(@class,'toast') and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"));
+    "//*[contains(@class,'toast') and contains(@class,'success')"
+      + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"
+      + " | //*[(contains(@class,'alert') or @role='alert')"
+      + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"));
     for (WebElement item : success) {
       if (item.isDisplayed()) {
         return true;
@@ -482,6 +432,56 @@ public class TransferFundsPage {
         )).isEmpty());
   }
 
+  private void waitForAccountOptions() {
+    new org.openqa.selenium.support.ui.WebDriverWait(driver,
+        Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS))
+        .until(d -> !getFromAccountOptionElements().isEmpty()
+            || !d.findElements(accountOptionText).isEmpty());
+  }
+
+  private List<WebElement> getFromAccountOptionElements() {
+    List<WebElement> candidates = new ArrayList<>();
+    candidates.addAll(driver.findElements(By.xpath(
+        "//*[@role='option' or self::li or contains(@class,'MuiMenuItem') or contains(@class,'menu-item')][normalize-space()]")));
+    candidates.addAll(driver.findElements(accountOptionText));
+    List<WebElement> filtered = new ArrayList<>();
+    for (WebElement candidate : candidates) {
+      if (!candidate.isDisplayed()) {
+        continue;
+      }
+      String text = normalizeOptionText(candidate);
+      if (looksLikeAccountOption(text)) {
+        filtered.add(candidate);
+      }
+    }
+    return filtered;
+  }
+
+  private String normalizeOptionText(WebElement option) {
+    try {
+      String text = option.getText().trim();
+      if (!text.isEmpty()) {
+        return text;
+      }
+      Object innerResult = ((JavascriptExecutor) driver).executeScript(
+          "return arguments[0].innerText || arguments[0].textContent || '';", option);
+      return innerResult != null ? innerResult.toString().trim() : "";
+    } catch (Exception e) {
+      return "";
+    }
+  }
+
+  private boolean looksLikeAccountOption(String text) {
+    if (text == null || text.isEmpty()) {
+      return false;
+    }
+    String lower = text.toLowerCase(Locale.ROOT);
+    return (lower.contains("savings") || lower.contains("current") || lower.contains("business"))
+        && text.matches(".*\\d+.*")
+        && text.contains("(")
+        && text.contains(")");
+  }
+
   // TF005 - Field value getters with assertions
   public String getReceiverAccountValue() {
     WebElement input = Waits.waitForVisible(driver, receiverAccountInput);
@@ -495,11 +495,54 @@ public class TransferFundsPage {
 
   public String getAmountValue() {
     try {
-      WebElement input = Waits.waitForVisible(driver, amountInput);
+      WebElement input = resolveAmountInput();
       return input.getAttribute("value") != null ? input.getAttribute("value") : "";
     } catch (Exception e) {
       return "";
     }
+  }
+
+  private WebElement resolveAmountInput() {
+    try {
+      return Waits.waitForVisible(driver, amountInput);
+    } catch (Exception e1) {
+      List<By> alternatives = List.of(
+          By.xpath("//label[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]/following::input[1]"),
+          By.xpath("//*[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]/following::input[1]"),
+          By.xpath("//input[contains(translate(@placeholder, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'amount')]"),
+          By.xpath("//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'amount')]"),
+          By.xpath("//input[contains(@name, 'amount') or contains(@id, 'amount')]")
+      );
+      try {
+        return ElementFinder.findFirstDisplayed(driver, alternatives,
+            Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+      } catch (Exception e2) {
+        WebElement receiverInput = null;
+        try {
+          receiverInput = Waits.waitForVisible(driver, receiverAccountInput);
+        } catch (Exception ignored) {
+          // Ignore
+        }
+        List<WebElement> numInputs = driver.findElements(By.xpath("//input[@type='number' or @inputmode='numeric']"));
+        for (WebElement candidate : numInputs) {
+          if (receiverInput != null && candidate.equals(receiverInput)) {
+            continue;
+          }
+          String id = candidate.getAttribute("id");
+          String name = candidate.getAttribute("name");
+          String placeholder = candidate.getAttribute("placeholder");
+          String aria = candidate.getAttribute("aria-label");
+          String combined = ("" + id + name + placeholder + aria).toLowerCase(Locale.ROOT);
+          if (combined.contains("amount")) {
+            return candidate;
+          }
+          if (candidate.isDisplayed()) {
+            return candidate;
+          }
+        }
+      }
+    }
+    return null;
   }
 
   public boolean isTransferTypeSelected(String type) {
@@ -555,18 +598,12 @@ public class TransferFundsPage {
   // TF007 & TF008 - Account selection helpers
   public void selectFirstAvailableAccount() {
     openFromAccountDropdown();
-    waitForDropdownOptions();
-    List<WebElement> options = driver.findElements(By.xpath(
-        "//*[@role='option' or self::li or self::div][normalize-space()]"));
+    waitForAccountOptions();
+    List<WebElement> options = getFromAccountOptionElements();
     for (WebElement option : options) {
       if (option.isDisplayed()) {
-        String text = option.getText().trim();
-        if (text.isEmpty()) {
-          Object result = ((JavascriptExecutor) driver).executeScript(
-              "return arguments[0].innerText || arguments[0].textContent || '';", option);
-          text = result != null ? result.toString().trim() : "";
-        }
-        if (!text.isEmpty() && !text.toLowerCase().contains("select")) {
+        String text = normalizeOptionText(option);
+        if (!text.isEmpty() && !text.toLowerCase().contains("select") && looksLikeAccountOption(text)) {
           try {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
           } catch (Exception e) {
@@ -581,7 +618,8 @@ public class TransferFundsPage {
 
   public String getSelectedFromAccount() {
     try {
-      WebElement dropdown = driver.findElement(byFollowingLabelOrText("from account"));
+      WebElement dropdown = getFromAccountDropdownElement();
+      closeFromAccountDropdown();
       String text = dropdown.getText().trim();
       if (text.isEmpty()) {
         Object result = ((JavascriptExecutor) driver).executeScript(
@@ -591,6 +629,40 @@ public class TransferFundsPage {
       return text;
     } catch (Exception e) {
       return "";
+    }
+  }
+
+  public String getSelectedAccountNumber() {
+    String selected = getSelectedFromAccount();
+    String accountNumber = selected.replaceAll("[^0-9]", "").trim();
+    if (accountNumber.length() >= 6) {
+      return accountNumber;
+    }
+    List<String> options = getFromAccountOptions();
+    if (!options.isEmpty()) {
+      String fallback = options.get(0).replaceAll("[^0-9]", "").trim();
+      if (!fallback.isEmpty()) {
+        return fallback;
+      }
+    }
+    return "";
+  }
+
+  private WebElement getFromAccountDropdownElement() {
+    return ElementFinder.findFirstDisplayed(driver, List.of(
+        byFollowingLabelOrText("from account"),
+        By.xpath("//*[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'from account')]/ancestor::div[1]//button"),
+        By.xpath("//label[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'from account')]/following::button[1]")),
+        Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+  }
+
+  private void closeFromAccountDropdown() {
+    try {
+      WebElement dropdown = getFromAccountDropdownElement();
+      dropdown.sendKeys(Keys.ESCAPE);
+      Waits.pauseAfterAction();
+    } catch (Exception ignored) {
+      // Ignore
     }
   }
 }

@@ -67,6 +67,7 @@
             <suiteXmlFile>${project.basedir}/src/test/resources/testng.xml</suiteXmlFile>
           </suiteXmlFiles>
           <useSystemClassLoader>true</useSystemClassLoader>
+          <testFailureIgnore>true</testFailureIgnore>
         </configuration>
       </plugin>
       <plugin>

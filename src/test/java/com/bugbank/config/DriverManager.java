@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public final class DriverManager {
-  private static WebDriver driver;
+  public static WebDriver driver;
 
   private DriverManager() {
   }
@@ -16,6 +16,11 @@ public final class DriverManager {
     if (driver == null) {
       WebDriverManager.chromedriver().setup();
       ChromeOptions options = new ChromeOptions();
+      boolean headless = isHeadlessEnabled();
+      if (headless) {
+        options.addArguments("--headless=new");
+        options.addArguments("--window-size=1920,1080");
+      }
       options.addArguments("start-maximized");
       options.addArguments("--disable-gpu");
       options.addArguments("--disable-dev-shm-usage");
@@ -38,5 +43,21 @@ public final class DriverManager {
       driver.quit();
       driver = null;
     }
+  }
+
+  private static boolean isHeadlessEnabled() {
+    String property = System.getProperty("headless");
+    if (property != null) {
+      return Boolean.parseBoolean(property);
+    }
+    String env = System.getenv("HEADLESS");
+    if (env != null) {
+      return Boolean.parseBoolean(env);
+    }
+    String ci = System.getenv("CI");
+    if (ci != null) {
+      return Boolean.parseBoolean(ci);
+    }
+    return false;
   }
 }
