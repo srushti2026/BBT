@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">BugBank-TransferFunds</th></tr>
+<tr><td><a href="#t0">TransferFunds-Suite</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">6</td><td class="num">2,990</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">BugBank-TransferFunds</th></tr></tbody><tbody id="t0"><tr><th colspan="4">TransferFunds-Suite &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.bugbank.runners.TF003Runner</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1777665772366</td><td rowspan="1">403</td></tr><tr class="failedodd"><td rowspan="1">com.bugbank.runners.TF004Runner</td><td><a href="#m1">runScenario</a></td><td rowspan="1">1777665772897</td><td rowspan="1">237</td></tr><tr class="failedeven"><td rowspan="1">com.bugbank.runners.TF005Runner</td><td><a href="#m2">runScenario</a></td><td rowspan="1">1777665773186</td><td rowspan="1">253</td></tr><tr class="failedodd"><td rowspan="1">com.bugbank.runners.TF006Runner</td><td><a href="#m3">runScenario</a></td><td rowspan="1">1777665773496</td><td rowspan="1">330</td></tr><tr class="failedeven"><td rowspan="1">com.bugbank.runners.TF007Runner</td><td><a href="#m4">runScenario</a></td><td rowspan="1">1777665773911</td><td rowspan="1">286</td></tr><tr class="failedodd"><td rowspan="1">com.bugbank.runners.TF008Runner</td><td><a href="#m5">runScenario</a></td><td rowspan="1">1777665774298</td><td rowspan="1">198</td></tr></tbody>
+</table>
+<h2>TransferFunds-Suite</h2><h3 id="m0">com.bugbank.runners.TF003Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Initial load of Transfer Funds page shows required controls&quot;</td><td>&quot;TF-003 Transfer Funds initial page layout&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-003.feature:5)
+... Removed 3 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.bugbank.runners.TF004Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;FROM ACCOUNT dropdown shows available accounts with details&quot;</td><td>&quot;TF-004 FROM ACCOUNT dropdown population&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-004.feature:5)
+... Removed 3 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.bugbank.runners.TF005Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;FROM ACCOUNT is required when sending money&quot;</td><td>&quot;TF-005 FROM ACCOUNT required validation&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-005.feature:5)
+... Removed 3 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.bugbank.runners.TF006Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;FROM ACCOUNT option shows account number and balance in correct format&quot;</td><td>&quot;TF-006 FROM ACCOUNT option format validation&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-006.feature:5)
+... Removed 3 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.bugbank.runners.TF007Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;User with multiple accounts sees all accounts in dropdown&quot;</td><td>&quot;TF-007 Multiple accounts in FROM ACCOUNT dropdown&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-007.feature:5)
+... Removed 3 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.bugbank.runners.TF008Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Prevent self-transfer using the same account&quot;</td><td>&quot;TF-008 Self-transfer prevention&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-008.feature:5)
+... Removed 3 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

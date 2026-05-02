@@ -1,0 +1,58 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 41.96 s <<< FAILURE! -- in TestSuite
+com.bugbank.runners.TF003Runner.runScenario["Initial load of Transfer Funds page shows required controls", "TF-003 Transfer Funds initial page layout"](1) -- Time elapsed: 0.407 s <<< FAILURE!
+java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-003.feature:5)
+
+com.bugbank.runners.TF004Runner.runScenario["FROM ACCOUNT dropdown shows available accounts with details", "TF-004 FROM ACCOUNT dropdown population"](1) -- Time elapsed: 0.256 s <<< FAILURE!
+java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-004.feature:5)
+
+com.bugbank.runners.TF005Runner.runScenario["FROM ACCOUNT is required when sending money", "TF-005 FROM ACCOUNT required validation"](1) -- Time elapsed: 0.293 s <<< FAILURE!
+java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-005.feature:5)
+
+com.bugbank.runners.TF006Runner.runScenario["FROM ACCOUNT option shows account number and balance in correct format", "TF-006 FROM ACCOUNT option format validation"](1) -- Time elapsed: 0.369 s <<< FAILURE!
+java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-006.feature:5)
+
+com.bugbank.runners.TF007Runner.runScenario["User with multiple accounts sees all accounts in dropdown", "TF-007 Multiple accounts in FROM ACCOUNT dropdown"](1) -- Time elapsed: 0.321 s <<< FAILURE!
+java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-007.feature:5)
+
+com.bugbank.runners.TF008Runner.runScenario["Prevent self-transfer using the same account", "TF-008 Self-transfer prevention"](1) -- Time elapsed: 0.227 s <<< FAILURE!
+java.lang.AssertionError: Login button should be visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.pages.LoginPage.assertLoginPageLoaded(LoginPage.java:63)
+	at com.bugbank.steps.TransferFundsSteps.loginPageIsLoaded(TransferFundsSteps.java:30)
+	at ✽.login page is loaded with logo and login button visible(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-008.feature:5)
+

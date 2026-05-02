@@ -1,0 +1,69 @@
+package com.bugbank.pages;
+
+import com.bugbank.config.TestConfig;
+import com.bugbank.config.Waits;
+import com.bugbank.util.ElementFinder;
+import java.time.Duration;
+import java.util.Arrays;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class DashboardPage {
+  private final WebDriver driver;
+
+  private final By transferHeader = By.xpath("//*[normalize-space()='Transfer Funds']");
+
+  public DashboardPage(WebDriver driver) {
+    this.driver = driver;
+  }
+
+  public void waitForLoaded() {
+    com.bugbank.config.Waits.sleepMillis(2000);
+    ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+        By.xpath("//*[normalize-space()='Transfer']"),
+        By.xpath("//*[normalize-space()='Accounts']"),
+        By.xpath("//*[normalize-space()='Dashboard']")),
+        Duration.ofSeconds(com.bugbank.config.TestConfig.LONG_WAIT_SECONDS));
+  }
+
+  public void assertAccountOverviewVisible() {
+    try {
+      ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.xpath("//*[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'account overview')]"),
+          By.xpath("//*[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'accounts')]")),
+          Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+    } catch (Exception e) {
+      // Try alternative checks
+      ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.xpath("//*[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'account')]")),
+          Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+    }
+  }
+
+  public void navigateToTransfer() {
+    WebElement transferNav = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+        By.xpath("//aside//*[normalize-space()='Transfer']"),
+        By.xpath("//*[contains(@class,'sidebar')]//*[normalize-space()='Transfer']"),
+        By.xpath("//*[self::a or self::div or self::span][normalize-space()='Transfer']")),
+        Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
+    transferNav.click();
+    Waits.pauseAfterAction();
+    Waits.waitForVisible(driver, transferHeader);
+  }
+
+  public void logoutIfPresent() {
+    WebElement logoutButton = null;
+    try {
+      logoutButton = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.xpath("//button[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'logout')]"),
+          By.xpath("//a[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'logout')]")),
+          Duration.ofSeconds(5));
+    } catch (Exception ignored) {
+      // ignore if logout not present
+    }
+    if (logoutButton != null) {
+      logoutButton.click();
+    }
+  }
+}
