@@ -20,6 +20,6 @@ Feature: TF-023 RTGS minimum amount validation
     And user enters AMOUNT "200000" with assertion
     And user selects CATEGORY "Friends & Family" with assertion
     And user selects SCHEDULE "Now" with assertion
-    And user enters REMARKS "Rent" with assertion
+    And user enters REMARKS "Rent" with assertion for description field
     And user submits transfer
     Then transfer is successful

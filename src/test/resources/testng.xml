@@ -2,6 +2,7 @@
 <suite name="BugBank-TransferFunds" verbose="1" parallel="none">
   <test name="TransferFunds-Suite">
     <classes>
+  
       <class name="com.bugbank.hooks.TestSuiteHooks"/>
       <class name="com.bugbank.runners.TF003Runner"/>
       <class name="com.bugbank.runners.TF004Runner"/>
@@ -18,6 +19,7 @@
       <class name="com.bugbank.runners.TF02123Runner"/>
       <class name="com.bugbank.runners.TF02678Runner"/>
       <class name="com.bugbank.runners.TF039Runner"/>
+   
     </classes>
   </test>
 </suite>

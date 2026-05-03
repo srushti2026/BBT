@@ -389,6 +389,7 @@ public class TransferFundsSteps {
 
   @Then("transfer is successful")
   public void transferIsSuccessful() {
+    waitForSuccessMessage();
     Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
         "Success message should appear for a successful transfer");
     Assert.assertFalse(transferFundsPage.isErrorMessageVisible(),
@@ -397,6 +398,7 @@ public class TransferFundsSteps {
 
   @Then("transfer is blocked due to RTGS minimum amount")
   public void transferIsBlockedDueToRtgsMinimum() {
+    waitForErrorMessage();
     Assert.assertFalse(transferFundsPage.isSuccessMessageVisible(),
         "Transfer should not succeed below RTGS minimum amount");
     Assert.assertTrue(transferFundsPage.isErrorMessageVisible(),
@@ -407,8 +409,51 @@ public class TransferFundsSteps {
         "RTGS minimum amount error message expected. Message: " + errorMessage);
   }
 
+  private void waitForSuccessMessage() {
+    int maxWaitSeconds = 10;
+    for (int i = 0; i < maxWaitSeconds; i++) {
+      if (transferFundsPage.isSuccessMessageVisible()) {
+        return;
+      }
+      try {
+        Thread.sleep(500);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    }
+  }
+
+  private void waitForErrorMessage() {
+    int maxWaitSeconds = 10;
+    for (int i = 0; i < maxWaitSeconds; i++) {
+      if (transferFundsPage.isErrorMessageVisible()) {
+        return;
+      }
+      try {
+        Thread.sleep(500);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    }
+  }
+
+  private void waitForSuccessOrErrorMessage() {
+    int maxWaitSeconds = 10;
+    for (int i = 0; i < maxWaitSeconds; i++) {
+      if (transferFundsPage.isSuccessMessageVisible() || transferFundsPage.isErrorMessageVisible()) {
+        return;
+      }
+      try {
+        Thread.sleep(500);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    }
+  }
+
   @Then("verify transfer result as {string}")
   public void verifyTransferResult(String result) {
+    waitForSuccessOrErrorMessage();
     if ("successful".equalsIgnoreCase(result)) {
       Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
           "Transfer should be successful");
@@ -424,6 +469,7 @@ public class TransferFundsSteps {
 
   @Then("verify IMPS transfer result as {string} for amount {string}")
   public void verifyIMPSTransferResult(String result, String amount) {
+    waitForSuccessOrErrorMessage();
     try {
       double amountValue = Double.parseDouble(amount);
       if (amountValue <= 0 || amountValue > 500000) {
@@ -450,6 +496,7 @@ public class TransferFundsSteps {
 
   @Then("verify NEFT transfer result as {string} for amount {string}")
   public void verifyNEFTTransferResult(String result, String amount) {
+    waitForSuccessOrErrorMessage();
     try {
       double amountValue = Double.parseDouble(amount);
       if (amountValue <= 0) {

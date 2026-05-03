@@ -20,6 +20,6 @@ Feature: TF-028 Amount with decimal values
     And user enters AMOUNT "5000.96" with assertion
     And user selects CATEGORY "Friends & Family" with assertion
     And user selects SCHEDULE "Now" with assertion
-    And user enters REMARKS "Rent" with assertion
+    And user enters REMARKS "Rent" with assertion for description field
     And user submits transfer
     Then transfer is successful

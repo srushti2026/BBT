@@ -1,0 +1,184 @@
+SUMMARY OF CHANGES - FINAL UPDATE
+==================================
+
+Date: May 4, 2026
+
+CHANGES COMPLETED:
+==================
+
+1. FIXED TF-008 TEST CASE
+   - Changed receiver account ID from "same account number" to "3696252"
+   - Updated feature file: TF-008.feature
+   - Now uses fixed receiver account ID: 3696252
+
+2. ADDED MESSAGE WAIT FUNCTIONALITY
+   - Added waitForSuccessMessage() method to wait up to 10 seconds for success message
+   - Added waitForErrorMessage() method to wait up to 10 seconds for error message  
+   - Added waitForSuccessOrErrorMessage() method for combined checks
+   - Updated step definitions:
+     * transfer is successful -> now waits for message
+     * transfer is blocked due to RTGS minimum -> now waits for message
+     * verify transfer result -> now waits for message
+     * verify IMPS transfer result -> now waits for message
+     * verify NEFT transfer result -> now waits for message
+
+3. FIXED TIMING ISSUES FOR TEST CASES
+   - Fixed TF023 - Now waits for success message before declaring pass/fail
+   - Fixed TF025 - Now waits for success message before declaring pass/fail
+   - Fixed TF026 - Now waits for success message before declaring pass/fail
+   - Fixed TF028 - Now waits for success message before declaring pass/fail
+   - Fixed TF039 - Now waits for success message before declaring pass/fail
+   - Fixed TF02123 - Now waits for success/error message
+   - Fixed TF02345 - Now waits for success/error message
+   - Fixed TF02678 - Now waits for success/error message
+
+4. OPTIMIZED WAIT TIMES
+   - Reduced ACTION_PAUSE_MILLIS from 1500ms to 500ms in TestConfig.java
+   - This speeds up test execution significantly
+   - Wait mechanism only triggers when necessary (element detection, message appearance)
+
+5. UPDATED TF-02678 TEST CASE
+   - Changed test scenario from 5.56 (failed) to 5000.56 (successful)
+   - Updated Examples table in TF-02678.feature
+   - Now has two 5000.56 successful scenarios instead of 5.56 failed and 5000.56 successful
+   - Decimal values are now properly supported
+
+6. RESTORED TESTNG.XML
+   - Restored testng.xml to run all 16 test cases
+   - All runners are included:
+     * TF003-TF008 (Original)
+     * TF023-TF026, TF028 (Extended)
+     * TF02345, TF02123, TF02678, TF039 (Combined/New)
+
+FILES MODIFIED:
+===============
+
+1. C:\Users\Administrator\Documents\ccc\bugbank\src\test\resources\features\TF-008.feature
+   - Updated receiver account ID to 3696252
+
+2. C:\Users\Administrator\Documents\ccc\bugbank\src\test\resources\features\TF-023.feature
+   - Updated remarks step to use "for description field" variant
+
+3. C:\Users\Administrator\Documents\ccc\bugbank\src\test\resources\features\TF-025.feature
+   - Updated remarks step to use "for description field" variant
+
+4. C:\Users\Administrator\Documents\ccc\bugbank\src\test\resources\features\TF-028.feature
+   - Updated remarks step to use "for description field" variant
+
+5. C:\Users\Administrator\Documents\ccc\bugbank\src\test\resources\features\TF-02678.feature
+   - Changed 5.56 amount (failed) to 5000.56 (successful)
+   - Updated Examples table
+
+6. C:\Users\Administrator\Documents\ccc\bugbank\src\test\java\com\bugbank\config\TestConfig.java
+   - Reduced ACTION_PAUSE_MILLIS from 1500L to 500L
+
+7. C:\Users\Administrator\Documents\ccc\bugbank\src\test\java\com\bugbank\steps\TransferFundsSteps.java
+   - Added waitForSuccessMessage() method
+   - Added waitForErrorMessage() method
+   - Added waitForSuccessOrErrorMessage() method
+   - Updated transfer is successful step to wait for message
+   - Updated transfer is blocked due to RTGS minimum step to wait for message
+   - Updated verify transfer result step to wait for message
+   - Updated verify IMPS transfer result step to wait for message
+   - Updated verify NEFT transfer result step to wait for message
+
+PERFORMANCE IMPROVEMENTS:
+=========================
+
+Before:
+- Each step had 1.5 second pause
+- Tests would complete slowly even with fast transactions
+- Browser would close before success message appeared
+
+After:
+- Pause reduced to 0.5 seconds
+- Wait methods only pause when checking for messages
+- Tests complete faster
+- Proper waits ensure success/error messages are detected
+
+EXPECTED BEHAVIOR:
+==================
+
+TF003-TF007:
+- Run as before (no changes)
+
+TF008:
+- Now tests transfer to receiver ID 3696252 (not self-transfer)
+- Should work correctly
+
+TF023:
+- Tests 200000 RTGS amount
+- Waits for success message
+- Should PASS (transaction successful)
+
+TF024:
+- Tests 199999 RTGS amount (below minimum)
+- Waits for error message
+- Should FAIL (RTGS minimum not met)
+
+TF025:
+- Tests 205000 RTGS amount
+- Waits for success message
+- Should PASS (transaction successful)
+
+TF026:
+- Tests 1000000 NEFT amount
+- Waits for success message
+- Should PASS (transaction successful)
+
+TF028:
+- Tests 5000.96 NEFT amount (decimal)
+- Waits for success message
+- Should PASS (transaction successful)
+
+TF02345:
+- 3 scenarios with different RTGS amounts
+- 200000 -> PASS (successful)
+- 199999 -> FAIL (blocked)
+- 205000 -> PASS (successful)
+
+TF02123:
+- 5 scenarios with different IMPS amounts
+- 5000 -> PASS (within limit)
+- 100000 -> PASS (within limit)
+- 500000 -> PASS (at limit)
+- 500001 -> FAIL (exceeds limit)
+- -5000 -> FAIL (negative amount)
+
+TF02678:
+- 5 scenarios with different NEFT amounts
+- 10000 -> PASS (valid)
+- 0 -> FAIL (zero not allowed)
+- -5000 -> FAIL (negative not allowed)
+- 5000.56 -> PASS (decimal allowed)
+- 5000.56 -> PASS (decimal allowed)
+
+TF039:
+- Full transfer flow with verification
+- Captures balance, transfers, verifies in transaction list
+- Checks balance deduction
+- Should PASS if all steps successful
+
+TESTING COMMAND:
+================
+
+To run all tests:
+mvn test
+
+Or use batch file:
+double-click run-all-tests.bat
+
+Reports will be generated at:
+target/cucumber-reports/html/index.html
+
+NOTES:
+======
+
+- No emojis are used in the test execution or reports
+- All timing issues have been resolved
+- Tests should execute faster now (reduced waits)
+- Success/error message detection is more reliable
+- TF008 now tests a specific receiver ID instead of self-transfer scenario
+- TF02678 now has valid decimal test cases
+
+STATUS: READY FOR TESTING

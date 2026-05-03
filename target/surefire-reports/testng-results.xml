@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="25" passed="9" failed="16" skipped="0">
+<testng-results ignored="0" total="25" passed="21" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-03T21:53:42 IST" name="BugBank-TransferFunds" finished-at="2026-05-03T22:38:43 IST" duration-ms="2700792">
+  <suite started-at="2026-05-04T02:42:44 IST" name="BugBank-TransferFunds" finished-at="2026-05-04T03:16:46 IST" duration-ms="2041935">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
@@ -22,20 +22,20 @@
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-05-03T21:53:42 IST" name="TransferFunds-Suite" finished-at="2026-05-03T22:38:43 IST" duration-ms="2700792">
+    <test started-at="2026-05-04T02:42:44 IST" name="TransferFunds-Suite" finished-at="2026-05-04T03:16:46 IST" duration-ms="2041935">
       <class name="com.bugbank.runners.TF025Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF025Runner@5e0e82ae]" started-at="2026-05-03T22:03:44 IST" name="setUpClass" finished-at="2026-05-03T22:03:44 IST" duration-ms="18" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF025Runner@5e0e82ae]" started-at="2026-05-04T02:50:02 IST" name="setUpClass" finished-at="2026-05-04T02:50:02 IST" duration-ms="16" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF025Runner@5e0e82ae]" started-at="2026-05-03T22:03:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:05:47 IST" duration-ms="122352" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF025Runner@5e0e82ae]" started-at="2026-05-04T02:50:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:51:35 IST" duration-ms="92999" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -48,41 +48,27 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
-at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-025.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF025Runner@5e0e82ae]" started-at="2026-05-03T22:05:47 IST" name="tearDownClass" finished-at="2026-05-03T22:05:47 IST" duration-ms="26" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF025Runner@5e0e82ae]" started-at="2026-05-04T02:51:35 IST" name="tearDownClass" finished-at="2026-05-04T02:51:35 IST" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF025Runner -->
       <class name="com.bugbank.runners.TF005Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF005Runner@443118b0]" started-at="2026-05-03T21:54:32 IST" name="setUpClass" finished-at="2026-05-03T21:54:32 IST" duration-ms="24" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF005Runner@443118b0]" started-at="2026-05-04T02:43:13 IST" name="setUpClass" finished-at="2026-05-04T02:43:13 IST" duration-ms="27" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF005Runner@443118b0]" started-at="2026-05-03T21:54:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T21:56:28 IST" duration-ms="115573" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF005Runner@443118b0]" started-at="2026-05-04T02:43:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:44:41 IST" duration-ms="87472" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -98,24 +84,24 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF005Runner@443118b0]" started-at="2026-05-03T21:56:28 IST" name="tearDownClass" finished-at="2026-05-03T21:56:28 IST" duration-ms="47" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF005Runner@443118b0]" started-at="2026-05-04T02:44:41 IST" name="tearDownClass" finished-at="2026-05-04T02:44:41 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF005Runner -->
       <class name="com.bugbank.runners.TF004Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF004Runner@5fe94a96]" started-at="2026-05-03T21:54:05 IST" name="setUpClass" finished-at="2026-05-03T21:54:05 IST" duration-ms="34" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF004Runner@5fe94a96]" started-at="2026-05-04T02:43:00 IST" name="setUpClass" finished-at="2026-05-04T02:43:00 IST" duration-ms="32" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF004Runner@5fe94a96]" started-at="2026-05-03T21:54:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T21:54:32 IST" duration-ms="27115" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF004Runner@5fe94a96]" started-at="2026-05-04T02:43:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:43:13 IST" duration-ms="13709" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -131,24 +117,24 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF004Runner@5fe94a96]" started-at="2026-05-03T21:54:32 IST" name="tearDownClass" finished-at="2026-05-03T21:54:32 IST" duration-ms="23" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF004Runner@5fe94a96]" started-at="2026-05-04T02:43:13 IST" name="tearDownClass" finished-at="2026-05-04T02:43:13 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF004Runner -->
       <class name="com.bugbank.runners.TF039Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" started-at="2026-05-03T22:36:39 IST" name="setUpClass" finished-at="2026-05-03T22:36:39 IST" duration-ms="25" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" started-at="2026-05-04T03:14:41 IST" name="setUpClass" finished-at="2026-05-04T03:14:41 IST" duration-ms="12" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" started-at="2026-05-03T22:36:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:38:43 IST" duration-ms="123940" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" started-at="2026-05-04T03:14:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:16:46 IST" duration-ms="124956" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -161,41 +147,27 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
-at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-039.feature:26)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" started-at="2026-05-03T22:38:43 IST" name="tearDownClass" finished-at="2026-05-03T22:38:43 IST" duration-ms="31" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF039Runner@36fc695d]" started-at="2026-05-04T03:16:46 IST" name="tearDownClass" finished-at="2026-05-04T03:16:46 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF039Runner -->
       <class name="com.bugbank.runners.TF023Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF023Runner@2d3379b4]" started-at="2026-05-03T21:59:40 IST" name="setUpClass" finished-at="2026-05-03T21:59:40 IST" duration-ms="25" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF023Runner@2d3379b4]" started-at="2026-05-04T02:46:52 IST" name="setUpClass" finished-at="2026-05-04T02:46:52 IST" duration-ms="19" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF023Runner@2d3379b4]" started-at="2026-05-03T21:59:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:01:42 IST" duration-ms="122361" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF023Runner@2d3379b4]" started-at="2026-05-04T02:46:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:48:27 IST" duration-ms="94479" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -208,41 +180,27 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
-at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-023.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF023Runner@2d3379b4]" started-at="2026-05-03T22:01:42 IST" name="tearDownClass" finished-at="2026-05-03T22:01:42 IST" duration-ms="32" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF023Runner@2d3379b4]" started-at="2026-05-04T02:48:27 IST" name="tearDownClass" finished-at="2026-05-04T02:48:27 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF023Runner -->
       <class name="com.bugbank.runners.TF02123Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:16:04 IST" name="setUpClass" finished-at="2026-05-03T22:16:04 IST" duration-ms="37" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T02:59:23 IST" name="setUpClass" finished-at="2026-05-04T02:59:23 IST" duration-ms="29" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:16:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:18:09 IST" duration-ms="125010" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T02:59:23 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:00:55 IST" duration-ms="92335" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -255,24 +213,10 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[IMPS transfer should be successful for amount: 5000 expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: IMPS transfer should be successful for amount: 5000 expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:436)
-at ✽.verify IMPS transfer result as "successful" for amount "5000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:18:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:20:12 IST" duration-ms="123158" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T03:00:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:02:28 IST" duration-ms="93067" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -285,24 +229,10 @@ at ✽.verify IMPS transfer result as "successful" for amount "5000"(file:///C:/
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[IMPS transfer should be successful for amount: 100000 expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: IMPS transfer should be successful for amount: 100000 expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:436)
-at ✽.verify IMPS transfer result as "successful" for amount "100000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:20:12 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:22:15 IST" duration-ms="123279" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T03:02:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:04:00 IST" duration-ms="91562" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -315,24 +245,10 @@ at ✽.verify IMPS transfer result as "successful" for amount "100000"(file:///C
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[IMPS transfer should be successful for amount: 500000 expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: IMPS transfer should be successful for amount: 500000 expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:436)
-at ✽.verify IMPS transfer result as "successful" for amount "500000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:22:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:24:18 IST" duration-ms="123209" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T03:04:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:05:35 IST" duration-ms="95495" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -354,7 +270,7 @@ at ✽.verify IMPS transfer result as "successful" for amount "500000"(file:///C
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:433)
+at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:479)
 at ✽.verify IMPS transfer result as "failed" for amount "500001"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
 ]]>
             </full-stacktrace>
@@ -362,7 +278,7 @@ at ✽.verify IMPS transfer result as "failed" for amount "500001"(file:///C:/Us
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:24:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:26:21 IST" duration-ms="123202" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T03:05:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:07:04 IST" duration-ms="89183" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -378,24 +294,24 @@ at ✽.verify IMPS transfer result as "failed" for amount "500001"(file:///C:/Us
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-03T22:26:21 IST" name="tearDownClass" finished-at="2026-05-03T22:26:21 IST" duration-ms="31" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF02123Runner@411f53a0]" started-at="2026-05-04T03:07:04 IST" name="tearDownClass" finished-at="2026-05-04T03:07:04 IST" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF02123Runner -->
       <class name="com.bugbank.runners.TF024Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF024Runner@30c15d8b]" started-at="2026-05-03T22:01:42 IST" name="setUpClass" finished-at="2026-05-03T22:01:42 IST" duration-ms="26" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF024Runner@30c15d8b]" started-at="2026-05-04T02:48:27 IST" name="setUpClass" finished-at="2026-05-04T02:48:27 IST" duration-ms="18" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF024Runner@30c15d8b]" started-at="2026-05-03T22:01:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:03:44 IST" duration-ms="122435" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF024Runner@30c15d8b]" started-at="2026-05-04T02:48:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:50:02 IST" duration-ms="95599" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -417,7 +333,7 @@ at ✽.verify IMPS transfer result as "failed" for amount "500001"(file:///C:/Us
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.transferIsBlockedDueToRtgsMinimum(TransferFundsSteps.java:402)
+at com.bugbank.steps.TransferFundsSteps.transferIsBlockedDueToRtgsMinimum(TransferFundsSteps.java:404)
 at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-024.feature:25)
 ]]>
             </full-stacktrace>
@@ -425,24 +341,24 @@ at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administr
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF024Runner@30c15d8b]" started-at="2026-05-03T22:03:44 IST" name="tearDownClass" finished-at="2026-05-03T22:03:44 IST" duration-ms="28" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF024Runner@30c15d8b]" started-at="2026-05-04T02:50:02 IST" name="tearDownClass" finished-at="2026-05-04T02:50:02 IST" duration-ms="10" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF024Runner -->
       <class name="com.bugbank.runners.TF008Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF008Runner@618b19ad]" started-at="2026-05-03T21:57:36 IST" name="setUpClass" finished-at="2026-05-03T21:57:36 IST" duration-ms="31" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF008Runner@618b19ad]" started-at="2026-05-04T02:45:22 IST" name="setUpClass" finished-at="2026-05-04T02:45:22 IST" duration-ms="19" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF008Runner@618b19ad]" started-at="2026-05-03T21:57:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T21:59:39 IST" duration-ms="123303" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF008Runner@618b19ad]" started-at="2026-05-04T02:45:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:46:52 IST" duration-ms="89992" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -457,12 +373,14 @@ at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administr
           </params>
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Self-transfer should not succeed.]]>
+              <![CDATA[Error message should appear for self-transfer attempt expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Self-transfer should not succeed.
+              <![CDATA[java.lang.AssertionError: Error message should appear for self-transfer attempt expected [true] but found [false]
 at org.testng.Assert.fail(Assert.java:111)
-at com.bugbank.steps.TransferFundsSteps.errorMessageIndicatesSelfTransferNotAllowed(TransferFundsSteps.java:366)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.errorMessageIndicatesSelfTransferNotAllowed(TransferFundsSteps.java:368)
 at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-008.feature:26)
 ]]>
             </full-stacktrace>
@@ -470,24 +388,121 @@ at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Adm
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF008Runner@618b19ad]" started-at="2026-05-03T21:59:39 IST" name="tearDownClass" finished-at="2026-05-03T21:59:40 IST" duration-ms="56" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF008Runner@618b19ad]" started-at="2026-05-04T02:46:52 IST" name="tearDownClass" finished-at="2026-05-04T02:46:52 IST" duration-ms="40" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF008Runner -->
-      <class name="com.bugbank.runners.TF02345Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-03T22:09:52 IST" name="setUpClass" finished-at="2026-05-03T22:09:52 IST" duration-ms="41" status="PASS">
+      <class name="com.bugbank.runners.TF02678Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:07:04 IST" name="setUpClass" finished-at="2026-05-04T03:07:04 IST" duration-ms="17" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-03T22:09:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:11:55 IST" duration-ms="123007" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:07:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:08:36 IST" duration-ms="91861" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["NEFT transfer with various amount formats"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:08:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:10:06 IST" duration-ms="89557" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["NEFT transfer with various amount formats"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:10:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:11:36 IST" duration-ms="89986" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["NEFT transfer with various amount formats"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:11:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:13:09 IST" duration-ms="93039" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["NEFT transfer with various amount formats"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:13:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T03:14:41 IST" duration-ms="92315" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["NEFT transfer with various amount formats"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-04T03:14:41 IST" name="tearDownClass" finished-at="2026-05-04T03:14:41 IST" duration-ms="17" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.bugbank.runners.TF02678Runner -->
+      <class name="com.bugbank.runners.TF02345Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-04T02:54:41 IST" name="setUpClass" finished-at="2026-05-04T02:54:41 IST" duration-ms="29" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-04T02:54:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:56:14 IST" duration-ms="92774" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -500,24 +515,10 @@ at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Adm
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Transfer should be successful expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Transfer should be successful expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:413)
-at ✽.verify transfer result as "successful"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02345.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-03T22:11:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:13:59 IST" duration-ms="124075" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-04T02:56:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:57:50 IST" duration-ms="96187" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -539,7 +540,7 @@ at ✽.verify transfer result as "successful"(file:///C:/Users/Administrator/Doc
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:420)
+at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:465)
 at ✽.verify transfer result as "blocked"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02345.feature:25)
 ]]>
             </full-stacktrace>
@@ -547,7 +548,7 @@ at ✽.verify transfer result as "blocked"(file:///C:/Users/Administrator/Docume
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-03T22:13:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:16:03 IST" duration-ms="124502" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-04T02:57:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:59:23 IST" duration-ms="92833" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -560,176 +561,37 @@ at ✽.verify transfer result as "blocked"(file:///C:/Users/Administrator/Docume
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Transfer should be successful expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Transfer should be successful expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:413)
-at ✽.verify transfer result as "successful"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02345.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-03T22:16:03 IST" name="tearDownClass" finished-at="2026-05-03T22:16:04 IST" duration-ms="60" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF02345Runner@6b2ea799]" started-at="2026-05-04T02:59:23 IST" name="tearDownClass" finished-at="2026-05-04T02:59:23 IST" duration-ms="28" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF02345Runner -->
-      <class name="com.bugbank.runners.TF02678Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:26:21 IST" name="setUpClass" finished-at="2026-05-03T22:26:22 IST" duration-ms="22" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:26:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:28:25 IST" duration-ms="123554" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["NEFT transfer with various amount formats"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[NEFT transfer should be successful for amount: 10000 expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: NEFT transfer should be successful for amount: 10000 expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyNEFTTransferResult(TransferFundsSteps.java:471)
-at ✽.verify NEFT transfer result as "successful" for amount "10000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02678.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:28:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:30:28 IST" duration-ms="122910" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["NEFT transfer with various amount formats"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:30:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:32:32 IST" duration-ms="124194" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["NEFT transfer with various amount formats"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:32:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:34:36 IST" duration-ms="123416" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["NEFT transfer with various amount formats"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:34:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:36:39 IST" duration-ms="123322" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["NEFT transfer with various amount formats"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["TF-02678 NEFT amount validation with decimal and boundary testing"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[NEFT transfer should be successful for decimal amount: 5000.56 expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: NEFT transfer should be successful for decimal amount: 5000.56 expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.verifyNEFTTransferResult(TransferFundsSteps.java:464)
-at ✽.verify NEFT transfer result as "successful" for amount "5000.56"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02678.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF02678Runner@2b71e916]" started-at="2026-05-03T22:36:39 IST" name="tearDownClass" finished-at="2026-05-03T22:36:39 IST" duration-ms="30" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- com.bugbank.runners.TF02678Runner -->
       <class name="com.bugbank.hooks.TestSuiteHooks">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@7b98f307]" started-at="2026-05-03T21:53:17 IST" name="beforeSuite" finished-at="2026-05-03T21:53:42 IST" duration-ms="25541" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@7b98f307]" started-at="2026-05-04T02:42:21 IST" name="beforeSuite" finished-at="2026-05-04T02:42:44 IST" duration-ms="23748" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@7b98f307]" started-at="2026-05-03T22:38:43 IST" name="afterSuite" finished-at="2026-05-03T22:38:47 IST" duration-ms="4358" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@7b98f307]" started-at="2026-05-04T03:16:46 IST" name="afterSuite" finished-at="2026-05-04T03:16:49 IST" duration-ms="2879" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- com.bugbank.hooks.TestSuiteHooks -->
       <class name="com.bugbank.runners.TF028Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF028Runner@51399530]" started-at="2026-05-03T22:07:50 IST" name="setUpClass" finished-at="2026-05-03T22:07:50 IST" duration-ms="27" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF028Runner@51399530]" started-at="2026-05-04T02:53:08 IST" name="setUpClass" finished-at="2026-05-04T02:53:08 IST" duration-ms="14" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF028Runner@51399530]" started-at="2026-05-03T22:07:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:09:52 IST" duration-ms="122199" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF028Runner@51399530]" started-at="2026-05-04T02:53:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:54:41 IST" duration-ms="93310" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -742,41 +604,27 @@ at ✽.verify NEFT transfer result as "successful" for amount "5000.56"(file:///
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
-at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-028.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF028Runner@51399530]" started-at="2026-05-03T22:09:52 IST" name="tearDownClass" finished-at="2026-05-03T22:09:52 IST" duration-ms="52" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF028Runner@51399530]" started-at="2026-05-04T02:54:41 IST" name="tearDownClass" finished-at="2026-05-04T02:54:41 IST" duration-ms="10" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF028Runner -->
       <class name="com.bugbank.runners.TF003Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" started-at="2026-05-03T21:53:42 IST" name="setUpClass" finished-at="2026-05-03T21:53:43 IST" duration-ms="1201" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" started-at="2026-05-04T02:42:44 IST" name="setUpClass" finished-at="2026-05-04T02:42:45 IST" duration-ms="1174" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" started-at="2026-05-03T21:53:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T21:54:05 IST" duration-ms="21342" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" started-at="2026-05-04T02:42:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:42:59 IST" duration-ms="13916" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -792,24 +640,24 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" started-at="2026-05-03T21:54:05 IST" name="tearDownClass" finished-at="2026-05-03T21:54:05 IST" duration-ms="123" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF003Runner@639c2c1d]" started-at="2026-05-04T02:42:59 IST" name="tearDownClass" finished-at="2026-05-04T02:43:00 IST" duration-ms="82" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF003Runner -->
       <class name="com.bugbank.runners.TF007Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF007Runner@74235045]" started-at="2026-05-03T21:57:04 IST" name="setUpClass" finished-at="2026-05-03T21:57:04 IST" duration-ms="36" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF007Runner@74235045]" started-at="2026-05-04T02:45:03 IST" name="setUpClass" finished-at="2026-05-04T02:45:03 IST" duration-ms="18" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF007Runner@74235045]" started-at="2026-05-03T21:57:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T21:57:36 IST" duration-ms="32230" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF007Runner@74235045]" started-at="2026-05-04T02:45:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:45:22 IST" duration-ms="18755" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -825,24 +673,24 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF007Runner@74235045]" started-at="2026-05-03T21:57:36 IST" name="tearDownClass" finished-at="2026-05-03T21:57:36 IST" duration-ms="44" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF007Runner@74235045]" started-at="2026-05-04T02:45:22 IST" name="tearDownClass" finished-at="2026-05-04T02:45:22 IST" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF007Runner -->
       <class name="com.bugbank.runners.TF006Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF006Runner@765d7657]" started-at="2026-05-03T21:56:28 IST" name="setUpClass" finished-at="2026-05-03T21:56:28 IST" duration-ms="47" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF006Runner@765d7657]" started-at="2026-05-04T02:44:41 IST" name="setUpClass" finished-at="2026-05-04T02:44:41 IST" duration-ms="46" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF006Runner@765d7657]" started-at="2026-05-03T21:56:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T21:57:04 IST" duration-ms="35975" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF006Runner@765d7657]" started-at="2026-05-04T02:44:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:45:03 IST" duration-ms="22359" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -858,24 +706,24 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF006Runner@765d7657]" started-at="2026-05-03T21:57:04 IST" name="tearDownClass" finished-at="2026-05-03T21:57:04 IST" duration-ms="38" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF006Runner@765d7657]" started-at="2026-05-04T02:45:03 IST" name="tearDownClass" finished-at="2026-05-04T02:45:03 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF006Runner -->
       <class name="com.bugbank.runners.TF026Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF026Runner@6771beb3]" started-at="2026-05-03T22:05:47 IST" name="setUpClass" finished-at="2026-05-03T22:05:47 IST" duration-ms="26" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF026Runner@6771beb3]" started-at="2026-05-04T02:51:35 IST" name="setUpClass" finished-at="2026-05-04T02:51:35 IST" duration-ms="18" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@8010cdf]]>
+                <![CDATA[org.testng.TestRunner@151f61d1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF026Runner@6771beb3]" started-at="2026-05-03T22:05:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-03T22:07:50 IST" duration-ms="122625" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF026Runner@6771beb3]" started-at="2026-05-04T02:51:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-04T02:53:08 IST" duration-ms="92252" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -888,24 +736,10 @@ at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugba
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
-at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-026.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF026Runner@6771beb3]" started-at="2026-05-03T22:07:50 IST" name="tearDownClass" finished-at="2026-05-03T22:07:50 IST" duration-ms="47" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF026Runner@6771beb3]" started-at="2026-05-04T02:53:08 IST" name="tearDownClass" finished-at="2026-05-04T02:53:08 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
