@@ -1,97 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="0" failed="0" skipped="6">
+<testng-results ignored="0" total="11" passed="5" failed="6" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-02T15:00:17 IST" name="BugBank-TransferFunds" finished-at="2026-05-02T15:00:21 IST" duration-ms="3822">
+  <suite started-at="2026-05-02T19:22:04 IST" name="BugBank-TransferFunds" finished-at="2026-05-02T19:38:09 IST" duration-ms="964769">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@515c6049]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF004Runner@639c2c1d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF005Runner@5fe94a96]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF006Runner@443118b0]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF007Runner@765d7657]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF008Runner@74235045]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@74235045]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF004Runner@618b19ad]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF005Runner@2d3379b4]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF006Runner@30c15d8b]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF007Runner@5e0e82ae]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF008Runner@6771beb3]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF023Runner@51399530]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF024Runner@6b2ea799]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF025Runner@411f53a0]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF026Runner@2b71e916]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF028Runner@36fc695d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-05-02T15:00:17 IST" name="TransferFunds-Suite" finished-at="2026-05-02T15:00:21 IST" duration-ms="3822">
+    <test started-at="2026-05-02T19:22:04 IST" name="TransferFunds-Suite" finished-at="2026-05-02T19:38:09 IST" duration-ms="964769">
       <class name="com.bugbank.hooks.TestSuiteHooks">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@71d44a3]" started-at="2026-05-02T14:58:39 IST" name="beforeSuite" finished-at="2026-05-02T15:00:17 IST" duration-ms="98096" status="FAIL">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@65fb9ffc]" started-at="2026-05-02T19:21:33 IST" name="beforeSuite" finished-at="2026-05-02T19:22:04 IST" duration-ms="30874" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@71d44a3]" started-at="2026-05-02T15:00:22 IST" name="afterSuite" finished-at="2026-05-02T15:00:28 IST" duration-ms="6685" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.bugbank.hooks.TestSuiteHooks@65fb9ffc]" started-at="2026-05-02T19:38:09 IST" name="afterSuite" finished-at="2026-05-02T19:38:13 IST" duration-ms="3732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- com.bugbank.hooks.TestSuiteHooks -->
-      <class name="com.bugbank.runners.TF003Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF003Runner@515c6049]" started-at="2026-05-02T15:00:18 IST" name="setUpClass" finished-at="2026-05-02T15:00:20 IST" duration-ms="2295" status="PASS">
+      <class name="com.bugbank.runners.TF028Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF028Runner@36fc695d]" started-at="2026-05-02T19:36:08 IST" name="setUpClass" finished-at="2026-05-02T19:36:08 IST" duration-ms="27" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@415ef4d8]]>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@515c6049]" started-at="2026-05-02T15:00:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T15:00:20 IST" duration-ms="1" status="SKIP">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF028Runner@36fc695d]" started-at="2026-05-02T19:36:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:38:09 IST" duration-ms="121139" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Decimal amount is accepted"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-028 Amount with decimal values"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-028.feature:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF028Runner@36fc695d]" started-at="2026-05-02T19:38:09 IST" name="tearDownClass" finished-at="2026-05-02T19:38:09 IST" duration-ms="36" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.bugbank.runners.TF028Runner -->
+      <class name="com.bugbank.runners.TF003Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF003Runner@74235045]" started-at="2026-05-02T19:22:04 IST" name="setUpClass" finished-at="2026-05-02T19:22:06 IST" duration-ms="1267" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF003Runner@74235045]" started-at="2026-05-02T19:22:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:22:27 IST" duration-ms="21226" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -104,82 +101,74 @@ at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF003Runner@515c6049]" started-at="2026-05-02T15:00:20 IST" name="tearDownClass" finished-at="2026-05-02T15:00:20 IST" duration-ms="272" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF003Runner@74235045]" started-at="2026-05-02T19:22:27 IST" name="tearDownClass" finished-at="2026-05-02T19:22:27 IST" duration-ms="112" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF003Runner -->
-      <class name="com.bugbank.runners.TF005Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF005Runner@5fe94a96]" started-at="2026-05-02T15:00:20 IST" name="setUpClass" finished-at="2026-05-02T15:00:20 IST" duration-ms="64" status="PASS">
+      <class name="com.bugbank.runners.TF025Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF025Runner@411f53a0]" started-at="2026-05-02T19:32:04 IST" name="setUpClass" finished-at="2026-05-02T19:32:04 IST" duration-ms="35" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@415ef4d8]]>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF005Runner@5fe94a96]" started-at="2026-05-02T15:00:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T15:00:20 IST" duration-ms="0" status="SKIP">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF025Runner@411f53a0]" started-at="2026-05-02T19:32:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:34:06 IST" duration-ms="121533" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["RTGS amount above minimum"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-025 RTGS above minimum amount validation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-025.feature:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF025Runner@411f53a0]" started-at="2026-05-02T19:34:06 IST" name="tearDownClass" finished-at="2026-05-02T19:34:06 IST" duration-ms="86" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.bugbank.runners.TF025Runner -->
+      <class name="com.bugbank.runners.TF005Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF005Runner@2d3379b4]" started-at="2026-05-02T19:22:54 IST" name="setUpClass" finished-at="2026-05-02T19:22:54 IST" duration-ms="29" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF005Runner@2d3379b4]" started-at="2026-05-02T19:22:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:24:49 IST" duration-ms="115008" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -192,82 +181,27 @@ at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF005Runner@5fe94a96]" started-at="2026-05-02T15:00:20 IST" name="tearDownClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="102" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF005Runner@2d3379b4]" started-at="2026-05-02T19:24:49 IST" name="tearDownClass" finished-at="2026-05-02T19:24:49 IST" duration-ms="30" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF005Runner -->
       <class name="com.bugbank.runners.TF007Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF007Runner@765d7657]" started-at="2026-05-02T15:00:21 IST" name="setUpClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="81" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF007Runner@5e0e82ae]" started-at="2026-05-02T19:25:25 IST" name="setUpClass" finished-at="2026-05-02T19:25:25 IST" duration-ms="17" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@415ef4d8]]>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF007Runner@765d7657]" started-at="2026-05-02T15:00:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T15:00:21 IST" duration-ms="0" status="SKIP">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF007Runner@5e0e82ae]" started-at="2026-05-02T19:25:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:25:58 IST" duration-ms="32665" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -280,82 +214,27 @@ at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF007Runner@765d7657]" started-at="2026-05-02T15:00:21 IST" name="tearDownClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="26" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF007Runner@5e0e82ae]" started-at="2026-05-02T19:25:58 IST" name="tearDownClass" finished-at="2026-05-02T19:25:58 IST" duration-ms="28" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF007Runner -->
       <class name="com.bugbank.runners.TF004Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF004Runner@639c2c1d]" started-at="2026-05-02T15:00:20 IST" name="setUpClass" finished-at="2026-05-02T15:00:20 IST" duration-ms="142" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF004Runner@618b19ad]" started-at="2026-05-02T19:22:27 IST" name="setUpClass" finished-at="2026-05-02T19:22:27 IST" duration-ms="71" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@415ef4d8]]>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF004Runner@639c2c1d]" started-at="2026-05-02T15:00:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T15:00:20 IST" duration-ms="0" status="SKIP">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF004Runner@618b19ad]" started-at="2026-05-02T19:22:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:22:54 IST" duration-ms="27235" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -368,82 +247,121 @@ at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF004Runner@639c2c1d]" started-at="2026-05-02T15:00:20 IST" name="tearDownClass" finished-at="2026-05-02T15:00:20 IST" duration-ms="28" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF004Runner@618b19ad]" started-at="2026-05-02T19:22:54 IST" name="tearDownClass" finished-at="2026-05-02T19:22:54 IST" duration-ms="52" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF004Runner -->
-      <class name="com.bugbank.runners.TF008Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF008Runner@74235045]" started-at="2026-05-02T15:00:21 IST" name="setUpClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="164" status="PASS">
+      <class name="com.bugbank.runners.TF023Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF023Runner@51399530]" started-at="2026-05-02T19:28:00 IST" name="setUpClass" finished-at="2026-05-02T19:28:00 IST" duration-ms="29" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@415ef4d8]]>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF008Runner@74235045]" started-at="2026-05-02T15:00:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T15:00:21 IST" duration-ms="0" status="SKIP">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF023Runner@51399530]" started-at="2026-05-02T19:28:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:30:01 IST" duration-ms="121205" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["RTGS valid minimum amount"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-023 RTGS minimum amount validation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-023.feature:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF023Runner@51399530]" started-at="2026-05-02T19:30:01 IST" name="tearDownClass" finished-at="2026-05-02T19:30:01 IST" duration-ms="46" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.bugbank.runners.TF023Runner -->
+      <class name="com.bugbank.runners.TF024Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF024Runner@6b2ea799]" started-at="2026-05-02T19:30:01 IST" name="setUpClass" finished-at="2026-05-02T19:30:01 IST" duration-ms="29" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF024Runner@6b2ea799]" started-at="2026-05-02T19:30:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:32:04 IST" duration-ms="123200" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["RTGS amount slightly below minimum"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-024 RTGS minimum amount validation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Error message should appear for RTGS minimum validation expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Error message should appear for RTGS minimum validation expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.transferIsBlockedDueToRtgsMinimum(TransferFundsSteps.java:396)
+at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-024.feature:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF024Runner@6b2ea799]" started-at="2026-05-02T19:32:04 IST" name="tearDownClass" finished-at="2026-05-02T19:32:04 IST" duration-ms="33" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.bugbank.runners.TF024Runner -->
+      <class name="com.bugbank.runners.TF008Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF008Runner@6771beb3]" started-at="2026-05-02T19:25:58 IST" name="setUpClass" finished-at="2026-05-02T19:25:58 IST" duration-ms="27" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF008Runner@6771beb3]" started-at="2026-05-02T19:25:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:28:00 IST" duration-ms="121932" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -456,82 +374,41 @@ at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
+              <![CDATA[Error message should appear for self-transfer attempt expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
+              <![CDATA[java.lang.AssertionError: Error message should appear for self-transfer attempt expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.errorMessageIndicatesSelfTransferNotAllowed(TransferFundsSteps.java:362)
+at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-008.feature:25)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF008Runner@74235045]" started-at="2026-05-02T15:00:21 IST" name="tearDownClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="22" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF008Runner@6771beb3]" started-at="2026-05-02T19:28:00 IST" name="tearDownClass" finished-at="2026-05-02T19:28:00 IST" duration-ms="33" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF008Runner -->
       <class name="com.bugbank.runners.TF006Runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF006Runner@443118b0]" started-at="2026-05-02T15:00:21 IST" name="setUpClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="132" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF006Runner@30c15d8b]" started-at="2026-05-02T19:24:49 IST" name="setUpClass" finished-at="2026-05-02T19:24:50 IST" duration-ms="13" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@415ef4d8]]>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF006Runner@443118b0]" started-at="2026-05-02T15:00:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T15:00:21 IST" duration-ms="0" status="SKIP">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF006Runner@30c15d8b]" started-at="2026-05-02T19:24:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:25:25 IST" duration-ms="35387" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -544,69 +421,61 @@ at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-... 24 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF006Runner@443118b0]" started-at="2026-05-02T15:00:21 IST" name="tearDownClass" finished-at="2026-05-02T15:00:21 IST" duration-ms="236" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF006Runner@30c15d8b]" started-at="2026-05-02T19:25:25 IST" name="tearDownClass" finished-at="2026-05-02T19:25:25 IST" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.bugbank.runners.TF006Runner -->
+      <class name="com.bugbank.runners.TF026Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.bugbank.runners.TF026Runner@2b71e916]" started-at="2026-05-02T19:34:06 IST" name="setUpClass" finished-at="2026-05-02T19:34:06 IST" duration-ms="21" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@304035e4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.bugbank.runners.TF026Runner@2b71e916]" started-at="2026-05-02T19:34:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-02T19:36:08 IST" duration-ms="121963" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["NEFT with large amount"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["TF-026 NEFT large amount"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Success message should appear for a successful transfer expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-026.feature:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.bugbank.runners.TF026Runner@2b71e916]" started-at="2026-05-02T19:36:08 IST" name="tearDownClass" finished-at="2026-05-02T19:36:08 IST" duration-ms="46" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.bugbank.runners.TF026Runner -->
     </test> <!-- TransferFunds-Suite -->
   </suite> <!-- BugBank-TransferFunds -->
 </testng-results>

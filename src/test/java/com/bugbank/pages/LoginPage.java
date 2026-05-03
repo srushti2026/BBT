@@ -88,6 +88,11 @@ public class LoginPage {
 
   public void clickLoginButton() {
      try {
+       forceClickLoginButton();
+       com.bugbank.config.Waits.pauseAfterAction();
+       if (isLoginModalVisible()) {
+         return;
+       }
        WebElement loginButton = waitForLoginButtonClickable();
        
        // Scroll into view

@@ -380,4 +380,24 @@ public class TransferFundsSteps {
     Assert.assertFalse(transferFundsPage.isSuccessMessageVisible(),
         "Success message should not appear");
   }
+
+  @Then("transfer is successful")
+  public void transferIsSuccessful() {
+    Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
+        "Success message should appear for a successful transfer");
+    Assert.assertFalse(transferFundsPage.isErrorMessageVisible(),
+        "Error message should not appear for a successful transfer");
+  }
+
+  @Then("transfer is blocked due to RTGS minimum amount")
+  public void transferIsBlockedDueToRtgsMinimum() {
+    Assert.assertFalse(transferFundsPage.isSuccessMessageVisible(),
+        "Transfer should not succeed below RTGS minimum amount");
+    Assert.assertTrue(transferFundsPage.isErrorMessageVisible(),
+        "Error message should appear for RTGS minimum validation");
+    String errorMessage = transferFundsPage.getErrorMessage().toLowerCase();
+    Assert.assertTrue(errorMessage.contains("minimum") || errorMessage.contains("min")
+            || errorMessage.contains("200000") || errorMessage.contains("2,00,000"),
+        "RTGS minimum amount error message expected. Message: " + errorMessage);
+  }
 }

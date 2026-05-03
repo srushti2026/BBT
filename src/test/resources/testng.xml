@@ -9,6 +9,11 @@
       <class name="com.bugbank.runners.TF006Runner"/>
       <class name="com.bugbank.runners.TF007Runner"/>
       <class name="com.bugbank.runners.TF008Runner"/>
+      <class name="com.bugbank.runners.TF023Runner"/>
+      <class name="com.bugbank.runners.TF024Runner"/>
+      <class name="com.bugbank.runners.TF025Runner"/>
+      <class name="com.bugbank.runners.TF026Runner"/>
+      <class name="com.bugbank.runners.TF028Runner"/>
     </classes>
   </test>
 </suite>

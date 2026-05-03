@@ -3,53 +3,48 @@
 <suite name="Failed suite [BugBank-TransferFunds]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="TransferFunds-Suite(failed)" verbose="0">
     <classes>
-      <class name="com.bugbank.runners.TF005Runner">
-        <methods>
-          <include name="setUpClass"/>
-          <include name="runScenario"/>
-          <include name="tearDownClass"/>
-        </methods>
-      </class> <!-- com.bugbank.runners.TF005Runner -->
-      <class name="com.bugbank.runners.TF004Runner">
+      <class name="com.bugbank.runners.TF024Runner">
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario"/>
+          <include name="runScenario" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.bugbank.runners.TF004Runner -->
-      <class name="com.bugbank.runners.TF003Runner">
+      </class> <!-- com.bugbank.runners.TF024Runner -->
+      <class name="com.bugbank.runners.TF025Runner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.bugbank.runners.TF025Runner -->
+      <class name="com.bugbank.runners.TF026Runner">
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario"/>
+          <include name="runScenario" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.bugbank.runners.TF003Runner -->
-      <class name="com.bugbank.runners.TF007Runner">
+      </class> <!-- com.bugbank.runners.TF026Runner -->
+      <class name="com.bugbank.runners.TF028Runner">
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario"/>
+          <include name="runScenario" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.bugbank.runners.TF007Runner -->
-      <class name="com.bugbank.runners.TF006Runner">
+      </class> <!-- com.bugbank.runners.TF028Runner -->
+      <class name="com.bugbank.runners.TF023Runner">
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario"/>
+          <include name="runScenario" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.bugbank.runners.TF006Runner -->
+      </class> <!-- com.bugbank.runners.TF023Runner -->
       <class name="com.bugbank.runners.TF008Runner">
         <methods>
           <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
-          <include name="runScenario"/>
         </methods>
       </class> <!-- com.bugbank.runners.TF008Runner -->
-      <class name="com.bugbank.hooks.TestSuiteHooks">
-        <methods>
-          <include name="beforeSuite"/>
-        </methods>
-      </class> <!-- com.bugbank.hooks.TestSuiteHooks -->
     </classes>
   </test> <!-- TransferFunds-Suite(failed) -->
 </suite> <!-- Failed suite [BugBank-TransferFunds] -->

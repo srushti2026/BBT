@@ -1,49 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 1, Errors: 0, Skipped: 6, Time elapsed: 110.2 s <<< FAILURE! -- in TestSuite
-com.bugbank.hooks.TestSuiteHooks.beforeSuite -- Time elapsed: 98.82 s <<< FAILURE!
-java.lang.RuntimeException: 
-Failed to click login button with ID 'btn-login': Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-	at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:101)
-	at com.bugbank.hooks.TestSuiteHooks.beforeSuite(TestSuiteHooks.java:25)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: .btn-landing.btn-primary-land (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.11'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.138, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59176}, goog:processID: 9032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59176/devtoo..., se:cdpVersion: 147.0.7727.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e68f0e857be0ae8f0e7939542fa5f35e
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.bugbank.pages.LoginPage.waitForLoginButtonClickable(LoginPage.java:245)
-	at com.bugbank.pages.LoginPage.clickLoginButton(LoginPage.java:91)
-	... 24 more
+Tests run: 11, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 1001 s <<< FAILURE! -- in TestSuite
+com.bugbank.runners.TF008Runner.runScenario["Prevent self-transfer using the same account", "TF-008 Self-transfer prevention"](1) -- Time elapsed: 121.9 s <<< FAILURE!
+java.lang.AssertionError: Error message should appear for self-transfer attempt expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.errorMessageIndicatesSelfTransferNotAllowed(TransferFundsSteps.java:362)
+	at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-008.feature:25)
+
+com.bugbank.runners.TF023Runner.runScenario["RTGS valid minimum amount", "TF-023 RTGS minimum amount validation"](1) -- Time elapsed: 121.2 s <<< FAILURE!
+java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-023.feature:25)
+
+com.bugbank.runners.TF024Runner.runScenario["RTGS amount slightly below minimum", "TF-024 RTGS minimum amount validation"](1) -- Time elapsed: 123.2 s <<< FAILURE!
+java.lang.AssertionError: Error message should appear for RTGS minimum validation expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.transferIsBlockedDueToRtgsMinimum(TransferFundsSteps.java:396)
+	at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-024.feature:25)
+
+com.bugbank.runners.TF025Runner.runScenario["RTGS amount above minimum", "TF-025 RTGS above minimum amount validation"](1) -- Time elapsed: 121.6 s <<< FAILURE!
+java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-025.feature:25)
+
+com.bugbank.runners.TF026Runner.runScenario["NEFT with large amount", "TF-026 NEFT large amount"](1) -- Time elapsed: 122.0 s <<< FAILURE!
+java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-026.feature:25)
+
+com.bugbank.runners.TF028Runner.runScenario["Decimal amount is accepted", "TF-028 Amount with decimal values"](1) -- Time elapsed: 121.2 s <<< FAILURE!
+java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-028.feature:25)
 

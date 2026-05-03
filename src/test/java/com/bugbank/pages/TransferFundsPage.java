@@ -376,7 +376,14 @@ public class TransferFundsPage {
     "//*[contains(@class,'toast') and contains(@class,'success')"
       + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"
       + " | //*[(contains(@class,'alert') or @role='alert')"
-      + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"));
+            + " and (contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')"
+            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'successful')"
+            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'completed'))]"
+            + " | //*[(contains(@class,'modal') or contains(@class,'notification')"
+            + " or contains(@class,'popup') or contains(@class,'dialog'))"
+            + " and (contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')"
+            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'successful')"
+            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'completed'))]"));
     for (WebElement item : success) {
       if (item.isDisplayed()) {
         return true;
