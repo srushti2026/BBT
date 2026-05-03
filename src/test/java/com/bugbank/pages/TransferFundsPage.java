@@ -237,11 +237,18 @@ public class TransferFundsPage {
   }
 
   public void fillBeneficiaryNickname(String value) {
-    WebElement input = Waits.waitForVisible(driver, beneficiaryNicknameInput);
-    input.clear();
-    input.sendKeys(value);
-    Waits.pauseAfterAction();
-  }
+     WebElement input = Waits.waitForVisible(driver, beneficiaryNicknameInput);
+     input.clear();
+     input.sendKeys(value);
+     Waits.pauseAfterAction();
+   }
+
+   public void fillRemarks(String value) {
+     WebElement input = Waits.waitForVisible(driver, remarksInput);
+     input.clear();
+     input.sendKeys(value);
+     Waits.pauseAfterAction();
+   }
 
   public void selectTransferType(String type) {
     String normalized = type.trim().toUpperCase(Locale.ROOT);

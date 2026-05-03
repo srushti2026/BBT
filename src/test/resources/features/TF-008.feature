@@ -16,11 +16,12 @@ Feature: TF-008 Self-transfer prevention
     And user selects first available account from dropdown with assertion
     Then verify FROM ACCOUNT has been selected
     When user enters RECEIVER ACCOUNT ID with same account number with assertion
-    And user enters BENEFICIARY NICKNAME "Rent" with assertion
+    And user enters BENEFICIARY NICKNAME "John Doe" with assertion
     And user selects TRANSFER TYPE "NEFT" with assertion
     And user enters AMOUNT "5000" with assertion
     And user selects CATEGORY "Friends & Family" with assertion
     And user selects SCHEDULE "Now" with assertion
+    And user enters REMARKS "Rent" with assertion for description field
     And user submits transfer
     Then error message indicates self-transfer is not allowed
     And no success message appears

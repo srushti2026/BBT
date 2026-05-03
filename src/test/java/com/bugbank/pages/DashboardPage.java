@@ -66,4 +66,46 @@ public class DashboardPage {
       logoutButton.click();
     }
   }
+
+  public String getSavingsAccountBalance() {
+    try {
+      WebElement balanceElement = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.xpath("//*[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'savings')]/following::*[contains(translate(., '0123456789.₹$€¥', ''), '')]"),
+          By.xpath("//*[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'balance')]"),
+          By.xpath("//*[contains(@class, 'balance')]")),
+          Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
+      return balanceElement.getText();
+    } catch (Exception e) {
+      System.out.println("Could not retrieve savings account balance: " + e.getMessage());
+      return "";
+    }
+  }
+
+  public void navigateToTransactions() {
+    try {
+      WebElement transactionsNav = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.xpath("//aside//*[normalize-space()='Transactions']"),
+          By.xpath("//*[contains(@class,'sidebar')]//*[normalize-space()='Transactions']"),
+          By.xpath("//*[self::a or self::div or self::span][normalize-space()='Transactions']")),
+          Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
+      transactionsNav.click();
+      Waits.pauseAfterAction();
+    } catch (Exception e) {
+      System.out.println("Could not navigate to transactions: " + e.getMessage());
+    }
+  }
+
+  public void navigateToDashboard() {
+    try {
+      WebElement dashboardNav = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          By.xpath("//aside//*[normalize-space()='Dashboard']"),
+          By.xpath("//*[contains(@class,'sidebar')]//*[normalize-space()='Dashboard']"),
+          By.xpath("//*[self::a or self::div or self::span][normalize-space()='Dashboard']")),
+          Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
+      dashboardNav.click();
+      Waits.pauseAfterAction();
+    } catch (Exception e) {
+      System.out.println("Could not navigate to dashboard: " + e.getMessage());
+    }
+  }
 }

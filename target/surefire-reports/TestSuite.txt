@@ -1,52 +1,139 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 1001 s <<< FAILURE! -- in TestSuite
-com.bugbank.runners.TF008Runner.runScenario["Prevent self-transfer using the same account", "TF-008 Self-transfer prevention"](1) -- Time elapsed: 121.9 s <<< FAILURE!
-java.lang.AssertionError: Error message should appear for self-transfer attempt expected [true] but found [false]
+Tests run: 25, Failures: 16, Errors: 0, Skipped: 0, Time elapsed: 2732 s <<< FAILURE! -- in TestSuite
+com.bugbank.runners.TF003Runner.runScenario["Initial load of Transfer Funds page shows required controls", "TF-003 Transfer Funds initial page layout"](1) -- Time elapsed: 21.35 s
+com.bugbank.runners.TF004Runner.runScenario["FROM ACCOUNT dropdown shows available accounts with details", "TF-004 FROM ACCOUNT dropdown population"](1) -- Time elapsed: 27.07 s
+com.bugbank.runners.TF005Runner.runScenario["FROM ACCOUNT is required when sending money", "TF-005 FROM ACCOUNT required validation"](1) -- Time elapsed: 115.6 s
+com.bugbank.runners.TF006Runner.runScenario["FROM ACCOUNT option shows account number and balance in correct format", "TF-006 FROM ACCOUNT option format validation"](1) -- Time elapsed: 35.98 s
+com.bugbank.runners.TF007Runner.runScenario["User with multiple accounts sees all accounts in dropdown", "TF-007 Multiple accounts in FROM ACCOUNT dropdown"](1) -- Time elapsed: 32.22 s
+com.bugbank.runners.TF008Runner.runScenario["Prevent self-transfer using the same account", "TF-008 Self-transfer prevention"](1) -- Time elapsed: 123.4 s <<< FAILURE!
+java.lang.AssertionError: Self-transfer should not succeed.
 	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.bugbank.steps.TransferFundsSteps.errorMessageIndicatesSelfTransferNotAllowed(TransferFundsSteps.java:362)
-	at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-008.feature:25)
+	at com.bugbank.steps.TransferFundsSteps.errorMessageIndicatesSelfTransferNotAllowed(TransferFundsSteps.java:366)
+	at ✽.error message indicates self-transfer is not allowed(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-008.feature:26)
 
-com.bugbank.runners.TF023Runner.runScenario["RTGS valid minimum amount", "TF-023 RTGS minimum amount validation"](1) -- Time elapsed: 121.2 s <<< FAILURE!
+com.bugbank.runners.TF023Runner.runScenario["RTGS valid minimum amount", "TF-023 RTGS minimum amount validation"](1) -- Time elapsed: 122.4 s <<< FAILURE!
 java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
-	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-023.feature:25)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-023.feature:25)
 
-com.bugbank.runners.TF024Runner.runScenario["RTGS amount slightly below minimum", "TF-024 RTGS minimum amount validation"](1) -- Time elapsed: 123.2 s <<< FAILURE!
+com.bugbank.runners.TF024Runner.runScenario["RTGS amount slightly below minimum", "TF-024 RTGS minimum amount validation"](1) -- Time elapsed: 122.4 s <<< FAILURE!
 java.lang.AssertionError: Error message should appear for RTGS minimum validation expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.bugbank.steps.TransferFundsSteps.transferIsBlockedDueToRtgsMinimum(TransferFundsSteps.java:396)
-	at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-024.feature:25)
+	at com.bugbank.steps.TransferFundsSteps.transferIsBlockedDueToRtgsMinimum(TransferFundsSteps.java:402)
+	at ✽.transfer is blocked due to RTGS minimum amount(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-024.feature:25)
 
-com.bugbank.runners.TF025Runner.runScenario["RTGS amount above minimum", "TF-025 RTGS above minimum amount validation"](1) -- Time elapsed: 121.6 s <<< FAILURE!
+com.bugbank.runners.TF025Runner.runScenario["RTGS amount above minimum", "TF-025 RTGS above minimum amount validation"](1) -- Time elapsed: 122.4 s <<< FAILURE!
 java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
-	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-025.feature:25)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-025.feature:25)
 
-com.bugbank.runners.TF026Runner.runScenario["NEFT with large amount", "TF-026 NEFT large amount"](1) -- Time elapsed: 122.0 s <<< FAILURE!
+com.bugbank.runners.TF026Runner.runScenario["NEFT with large amount", "TF-026 NEFT large amount"](1) -- Time elapsed: 122.6 s <<< FAILURE!
 java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
-	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-026.feature:25)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-026.feature:25)
 
-com.bugbank.runners.TF028Runner.runScenario["Decimal amount is accepted", "TF-028 Amount with decimal values"](1) -- Time elapsed: 121.2 s <<< FAILURE!
+com.bugbank.runners.TF028Runner.runScenario["Decimal amount is accepted", "TF-028 Amount with decimal values"](1) -- Time elapsed: 122.3 s <<< FAILURE!
 java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:386)
-	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/Git/testing/BBT/src/test/resources/features/TF-028.feature:25)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-028.feature:25)
+
+com.bugbank.runners.TF02345Runner.runScenario["RTGS transfer with various amounts", "TF-02345 RTGS amount validation with multiple values"](1) -- Time elapsed: 123.0 s <<< FAILURE!
+java.lang.AssertionError: Transfer should be successful expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:413)
+	at ✽.verify transfer result as "successful"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02345.feature:25)
+
+com.bugbank.runners.TF02345Runner.runScenario["RTGS transfer with various amounts", "TF-02345 RTGS amount validation with multiple values"](2) -- Time elapsed: 124.1 s <<< FAILURE!
+java.lang.AssertionError: Error message should appear for blocked transfer expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:420)
+	at ✽.verify transfer result as "blocked"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02345.feature:25)
+
+com.bugbank.runners.TF02345Runner.runScenario["RTGS transfer with various amounts", "TF-02345 RTGS amount validation with multiple values"](3) -- Time elapsed: 124.5 s <<< FAILURE!
+java.lang.AssertionError: Transfer should be successful expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyTransferResult(TransferFundsSteps.java:413)
+	at ✽.verify transfer result as "successful"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02345.feature:25)
+
+com.bugbank.runners.TF02123Runner.runScenario["IMPS transfer with boundary amount validation", "TF-02123 IMPS amount validation with boundary testing"](1) -- Time elapsed: 125.0 s <<< FAILURE!
+java.lang.AssertionError: IMPS transfer should be successful for amount: 5000 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:436)
+	at ✽.verify IMPS transfer result as "successful" for amount "5000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
+
+com.bugbank.runners.TF02123Runner.runScenario["IMPS transfer with boundary amount validation", "TF-02123 IMPS amount validation with boundary testing"](2) -- Time elapsed: 123.2 s <<< FAILURE!
+java.lang.AssertionError: IMPS transfer should be successful for amount: 100000 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:436)
+	at ✽.verify IMPS transfer result as "successful" for amount "100000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
+
+com.bugbank.runners.TF02123Runner.runScenario["IMPS transfer with boundary amount validation", "TF-02123 IMPS amount validation with boundary testing"](3) -- Time elapsed: 123.3 s <<< FAILURE!
+java.lang.AssertionError: IMPS transfer should be successful for amount: 500000 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:436)
+	at ✽.verify IMPS transfer result as "successful" for amount "500000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
+
+com.bugbank.runners.TF02123Runner.runScenario["IMPS transfer with boundary amount validation", "TF-02123 IMPS amount validation with boundary testing"](4) -- Time elapsed: 123.2 s <<< FAILURE!
+java.lang.AssertionError: Error message should appear for invalid amount: 500001 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyIMPSTransferResult(TransferFundsSteps.java:433)
+	at ✽.verify IMPS transfer result as "failed" for amount "500001"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02123.feature:25)
+
+com.bugbank.runners.TF02123Runner.runScenario["IMPS transfer with boundary amount validation", "TF-02123 IMPS amount validation with boundary testing"](5) -- Time elapsed: 123.2 s
+com.bugbank.runners.TF02678Runner.runScenario["NEFT transfer with various amount formats", "TF-02678 NEFT amount validation with decimal and boundary testing"](1) -- Time elapsed: 123.6 s <<< FAILURE!
+java.lang.AssertionError: NEFT transfer should be successful for amount: 10000 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyNEFTTransferResult(TransferFundsSteps.java:471)
+	at ✽.verify NEFT transfer result as "successful" for amount "10000"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02678.feature:25)
+
+com.bugbank.runners.TF02678Runner.runScenario["NEFT transfer with various amount formats", "TF-02678 NEFT amount validation with decimal and boundary testing"](2) -- Time elapsed: 122.9 s
+com.bugbank.runners.TF02678Runner.runScenario["NEFT transfer with various amount formats", "TF-02678 NEFT amount validation with decimal and boundary testing"](3) -- Time elapsed: 124.2 s
+com.bugbank.runners.TF02678Runner.runScenario["NEFT transfer with various amount formats", "TF-02678 NEFT amount validation with decimal and boundary testing"](4) -- Time elapsed: 123.4 s
+com.bugbank.runners.TF02678Runner.runScenario["NEFT transfer with various amount formats", "TF-02678 NEFT amount validation with decimal and boundary testing"](5) -- Time elapsed: 123.3 s <<< FAILURE!
+java.lang.AssertionError: NEFT transfer should be successful for decimal amount: 5000.56 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.verifyNEFTTransferResult(TransferFundsSteps.java:464)
+	at ✽.verify NEFT transfer result as "successful" for amount "5000.56"(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-02678.feature:25)
+
+com.bugbank.runners.TF039Runner.runScenario["Full transfer workflow with dashboard and transaction verification", "TF-039 Complete transfer flow with transaction verification"](1) -- Time elapsed: 124.0 s <<< FAILURE!
+java.lang.AssertionError: Success message should appear for a successful transfer expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.bugbank.steps.TransferFundsSteps.transferIsSuccessful(TransferFundsSteps.java:392)
+	at ✽.transfer is successful(file:///C:/Users/Administrator/Documents/ccc/bugbank/src/test/resources/features/TF-039.feature:26)
 
