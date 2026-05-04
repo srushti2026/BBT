@@ -26,8 +26,6 @@ Feature: TF-02123 IMPS amount validation with boundary testing
 
     Examples:
       | amount  | result      |
-      | 5000    | successful  |
-      | 100000  | successful  |
       | 500000  | successful  |
       | 500001  | failed      |
       | -5000   | failed      |

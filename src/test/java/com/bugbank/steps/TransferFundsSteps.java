@@ -478,16 +478,21 @@ public class TransferFundsSteps {
   @Then("verify transfer result as {string}")
   public void verifyTransferResult(String result) {
     waitForSuccessOrErrorMessage();
+    String allMessages = transferFundsPage.getAllVisibleMessages();
+    System.out.println("All visible messages: " + allMessages);
+    System.out.println("Is success visible: " + transferFundsPage.isSuccessMessageVisible());
+    System.out.println("Is error visible: " + transferFundsPage.isErrorMessageVisible());
+    
     if ("successful".equalsIgnoreCase(result)) {
       Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
-          "Transfer should be successful");
+          "Transfer should be successful. Messages: " + allMessages);
       Assert.assertFalse(transferFundsPage.isErrorMessageVisible(),
-          "Error message should not appear for successful transfer");
+          "Error message should not appear for successful transfer. Messages: " + allMessages);
     } else if ("blocked".equalsIgnoreCase(result)) {
       Assert.assertFalse(transferFundsPage.isSuccessMessageVisible(),
-          "Transfer should not succeed");
+          "Transfer should not succeed. Messages: " + allMessages);
       Assert.assertTrue(transferFundsPage.isErrorMessageVisible(),
-          "Error message should appear for blocked transfer");
+          "Error message should appear for blocked transfer. Messages: " + allMessages);
     }
   }
 

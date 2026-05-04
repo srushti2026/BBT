@@ -30,4 +30,3 @@ Feature: TF-02678 NEFT amount validation with decimal and boundary testing
       | 0       | failed      |
       | -5000   | failed      |
       | 5000.56 | successful  |
-      | 5000.56 | successful  |

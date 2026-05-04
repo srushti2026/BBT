@@ -5,6 +5,7 @@
   
       <class name="com.bugbank.hooks.TestSuiteHooks"/>
       <class name="com.bugbank.runners.TF003Runner"/>
+      <class name="com.bugbank.runners.TF0003567Runner"/>
       <class name="com.bugbank.runners.TF004Runner"/>
       <class name="com.bugbank.runners.TF005Runner"/>
       <class name="com.bugbank.runners.TF006Runner"/>
@@ -19,7 +20,6 @@
       <class name="com.bugbank.runners.TF02123Runner"/>
       <class name="com.bugbank.runners.TF02678Runner"/>
       <class name="com.bugbank.runners.TF039Runner"/>
-   
     </classes>
   </test>
 </suite>
