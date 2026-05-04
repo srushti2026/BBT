@@ -15,7 +15,7 @@ Feature: TF-008 Self-transfer prevention
     When user opens FROM ACCOUNT dropdown
     And user selects first available account from dropdown with assertion
     Then verify FROM ACCOUNT has been selected
-    When user enters RECEIVER ACCOUNT ID "3696252" with assertion
+    When user enters RECEIVER ACCOUNT ID with same account number with assertion
     And user enters BENEFICIARY NICKNAME "John Doe" with assertion
     And user selects TRANSFER TYPE "NEFT" with assertion
     And user enters AMOUNT "5000" with assertion

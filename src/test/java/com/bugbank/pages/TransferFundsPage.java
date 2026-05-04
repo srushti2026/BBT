@@ -2,6 +2,7 @@ package com.bugbank.pages;
 
 import com.bugbank.config.Waits;
 import com.bugbank.util.ElementFinder;
+import com.bugbank.util.ScreenshotUtil;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,30 +12,35 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class TransferFundsPage {
   private final WebDriver driver;
+
+  // Updated XPaths as per specification
+  private final By transferHeaderXpath = By.xpath("//*[@id=\"transfer\"]/div[1]/h2");
+  private final By fromAccountDropdownXpath = By.xpath("//*[@id=\"fromAccountSelect\"]");
+  private final By fromAccountOptionXpath = By.xpath("//*[@id=\"fromAccountSelect\"]/option[1]");
+  private final By receiverAccountInputXpath = By.xpath("//*[@id=\"toAccountId\"]");
+  private final By beneficiaryNicknameXpath = By.xpath("//*[@id=\"transferNickname\"]");
+  private final By amountInputXpath = By.xpath("//*[@id=\"transferAmount\"]");
+  private final By categoryDropdownXpath = By.xpath("//*[@id=\"category\"]");
+  private final By scheduleNowXpath = By.xpath("//*[@id=\"transfer\"]/div[2]/div[1]/div[7]/div/label[1]/input");
+  private final By submitButtonXpath = By.xpath("//*[@id=\"btn-transfer-submit\"]");
+  private final By errorMessageXpath = By.xpath("/div/span[2]");
+  private final By successMessageXpath = By.xpath("/div/span[2]");
+  private final By savingsAccountBalanceXpath = By.xpath("//*[@id=\"accountList\"]/div[2]/div[1]/div[1]");
+  private final By transactionsNavXpath = By.xpath("//*[@id=\"nav-transactions\"]/span[2]");
+  private final By viewLast15Xpath = By.xpath("//*[@id=\"btn-view-last15\"]");
+  private final By firstTransactionXpath = By.xpath("//*[@id=\"txnResult\"]/div/table/tbody/tr[1]");
 
   private final By accountOptionText = By.xpath(
       "//*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'savings')"
           + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'current')"
           + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'business')]"
           + "[contains(.,'(') and contains(.,')')]");
-
-  private final By transferHeader = By.xpath("//*[normalize-space()='Transfer Funds']");
-  private final By fromAccountLabel = By.xpath("//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='from account']");
-  private final By receiverAccountInput = inputByLabelOrPlaceholder("receiver account id", "1023");
-  private final By beneficiaryNicknameInput = inputByLabelOrPlaceholder("beneficiary nickname", "rent");
-  private final By amountInput = By.xpath("//label[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]/following::input[1]"
-      + " | //input[contains(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]"
-      + " | //input[contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]"
-      + " | //input[@type='number'][position()=2]");
-  private final By categoryDropdown = byFollowingLabelOrText("category");
-  private final By scheduleNow = By.xpath("//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='now']");
-  private final By scheduleLater = By.xpath("//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='later']");
-  private final By remarksInput = inputByLabelOrPlaceholder("remarks", "monthly rent");
-  private final By sendMoneyButton = By.xpath("//button[contains(.,'Send Money')]");
 
   private final By transferTypeImps = By.xpath("//*[normalize-space()='IMPS']");
   private final By transferTypeNeft = By.xpath("//*[normalize-space()='NEFT']");
@@ -45,27 +51,27 @@ public class TransferFundsPage {
   }
 
   public void assertPageLoaded() {
-    Waits.waitForVisible(driver, transferHeader);
-    Waits.waitForVisible(driver, fromAccountLabel);
+    WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+    wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(transferHeaderXpath));
   }
 
   public void assertLayoutComplete() {
     try {
-      Assert.assertTrue(driver.findElement(fromAccountLabel).isDisplayed(),
+      Assert.assertTrue(driver.findElement(By.xpath("//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='from account']")).isDisplayed(),
           "FROM ACCOUNT label should be visible");
     } catch (Exception e) {
       Assert.fail("FROM ACCOUNT label not found or not visible");
     }
     
     try {
-      Assert.assertTrue(driver.findElement(receiverAccountInput).isDisplayed(),
+      Assert.assertTrue(driver.findElement(receiverAccountInputXpath).isDisplayed(),
           "RECEIVER ACCOUNT ID input should be visible");
     } catch (Exception e) {
       Assert.fail("RECEIVER ACCOUNT ID input not found or not visible");
     }
     
     try {
-      Assert.assertTrue(driver.findElement(beneficiaryNicknameInput).isDisplayed(),
+      Assert.assertTrue(driver.findElement(beneficiaryNicknameXpath).isDisplayed(),
           "BENEFICIARY NICKNAME input should be visible");
     } catch (Exception e) {
       Assert.fail("BENEFICIARY NICKNAME input not found or not visible");
@@ -95,7 +101,7 @@ public class TransferFundsPage {
     // For amount input, use flexible locators
     try {
       WebElement amountElement = ElementFinder.findFirstDisplayed(driver, List.of(
-          amountInput,
+          amountInputXpath,
           By.xpath("//input[@type='number']"),
           By.xpath("//input[contains(@placeholder, '5000')]"),
           By.xpath("//input[contains(translate(@placeholder, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'amount')]")
@@ -107,35 +113,35 @@ public class TransferFundsPage {
     }
     
     try {
-      Assert.assertTrue(driver.findElement(categoryDropdown).isDisplayed(),
+      Assert.assertTrue(driver.findElement(categoryDropdownXpath).isDisplayed(),
           "CATEGORY dropdown should be visible");
     } catch (Exception e) {
       Assert.fail("CATEGORY dropdown not found or not visible");
     }
     
     try {
-      Assert.assertTrue(driver.findElement(scheduleNow).isDisplayed(),
+      Assert.assertTrue(driver.findElement(scheduleNowXpath).isDisplayed(),
           "Schedule NOW option should be visible");
     } catch (Exception e) {
       Assert.fail("Schedule NOW option not found or not visible");
     }
     
     try {
-      Assert.assertTrue(driver.findElement(scheduleLater).isDisplayed(),
+      Assert.assertTrue(driver.findElement(By.xpath("//*[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='later']")).isDisplayed(),
           "Schedule LATER option should be visible");
     } catch (Exception e) {
       Assert.fail("Schedule LATER option not found or not visible");
     }
     
     try {
-      Assert.assertTrue(driver.findElement(remarksInput).isDisplayed(),
+      Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"transferRemarks\"]")).isDisplayed(),
           "REMARKS input should be visible");
     } catch (Exception e) {
       Assert.fail("REMARKS input not found or not visible");
     }
     
     try {
-      Assert.assertTrue(driver.findElement(sendMoneyButton).isDisplayed(),
+      Assert.assertTrue(driver.findElement(submitButtonXpath).isDisplayed(),
           "Send Money button should be visible");
     } catch (Exception e) {
       Assert.fail("Send Money button not found or not visible");
@@ -228,27 +234,59 @@ public class TransferFundsPage {
   public void fillReceiverAccountId(String value) {
     String sanitized = value == null ? "" : value.replaceAll("[^0-9]", "");
     if (sanitized.isEmpty()) {
-      sanitized = "1023";
+      sanitized = "12"; // Updated default value
     }
-    WebElement input = Waits.waitForVisible(driver, receiverAccountInput);
+    WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+    WebElement input = wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(receiverAccountInputXpath));
     input.clear();
+    Waits.pauseAfterAction();
     input.sendKeys(sanitized);
     Waits.pauseAfterAction();
   }
 
   public void fillBeneficiaryNickname(String value) {
-     WebElement input = Waits.waitForVisible(driver, beneficiaryNicknameInput);
-     input.clear();
-     input.sendKeys(value);
-     Waits.pauseAfterAction();
-   }
+    WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+    WebElement input = wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(beneficiaryNicknameXpath));
+    input.clear();
+    Waits.pauseAfterAction();
+    input.sendKeys(value);
+    Waits.pauseAfterAction();
+  }
 
-   public void fillRemarks(String value) {
-     WebElement input = Waits.waitForVisible(driver, remarksInput);
-     input.clear();
-     input.sendKeys(value);
-     Waits.pauseAfterAction();
-   }
+  public String fillRemarks(String value) {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
+    try {
+      WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"transferRemarks\"]")));
+      input.clear();
+      Waits.pauseAfterAction();
+      input.sendKeys(value);
+      Waits.pauseAfterAction();
+      return value;
+    } catch (Exception e) {
+      // Try alternative: textarea with remarks name
+      try {
+        WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[@name='remarks']")));
+        input.clear();
+        Waits.pauseAfterAction();
+        input.sendKeys(value);
+        Waits.pauseAfterAction();
+        return value;
+      } catch (Exception e2) {
+        // Try input with remarks name
+        try {
+          WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='remarks']")));
+          input.clear();
+          Waits.pauseAfterAction();
+          input.sendKeys(value);
+          Waits.pauseAfterAction();
+          return value;
+        } catch (Exception e3) {
+          System.err.println("Failed to fill remarks: " + e3.getMessage());
+          return "";
+        }
+      }
+    }
+  }
 
   public void selectTransferType(String type) {
     String normalized = type.trim().toUpperCase(Locale.ROOT);
@@ -299,7 +337,7 @@ public class TransferFundsPage {
    }
 
   public void selectFirstCategoryOption() {
-    WebElement dropdown = Waits.waitForClickable(driver, categoryDropdown);
+    WebElement dropdown = Waits.waitForClickable(driver, categoryDropdownXpath);
     // Scroll into view
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdown);
     Waits.pauseAfterAction();
@@ -329,7 +367,7 @@ public class TransferFundsPage {
   }
 
   public void selectScheduleNow() {
-    WebElement element = Waits.waitForClickable(driver, scheduleNow);
+    WebElement element = Waits.waitForClickable(driver, scheduleNowXpath);
     // Scroll into view
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     Waits.pauseAfterAction();
@@ -343,7 +381,7 @@ public class TransferFundsPage {
   }
 
   public void submitTransfer() {
-    WebElement button = Waits.waitForClickable(driver, sendMoneyButton);
+    WebElement button = Waits.waitForClickable(driver, submitButtonXpath);
     // Scroll into view
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
     Waits.pauseAfterAction();
@@ -365,38 +403,50 @@ public class TransferFundsPage {
   }
 
   public boolean isErrorMessageVisible() {
-    List<WebElement> errors = driver.findElements(By.xpath(
-        "//*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'required')]"
-            + " | //*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'cannot')"
-            + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'same account')]"
-            + " | //*[contains(@class,'toast') and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'error')]"));
-    for (WebElement error : errors) {
-      if (error.isDisplayed()) {
-        return true;
+    try {
+      // Wait a bit for any message to appear
+      Thread.sleep(1500);
+      
+      // Look for any displayed message
+      List<WebElement> messages = driver.findElements(By.xpath(
+          "//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"));
+      
+      for (WebElement msg : messages) {
+        if (msg.isDisplayed()) {
+          String text = msg.getText().toLowerCase().trim();
+          // If message CONTAINS "transfer successful", it's NOT an error
+          if (text.contains("transfer successful") || text.contains("success")) {
+            continue;  // This is a success message, not an error
+          }
+          // If message is not empty and doesn't say success, it's an error
+          if (!text.isEmpty()) {
+            return true;
+          }
+        }
       }
+      return false;
+    } catch (Exception e) {
+      return false;
     }
-    return false;
   }
 
   public boolean isSuccessMessageVisible() {
-    List<WebElement> success = driver.findElements(By.xpath(
-    "//*[contains(@class,'toast') and contains(@class,'success')"
-      + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"
-      + " | //*[(contains(@class,'alert') or @role='alert')"
-            + " and (contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')"
-            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'successful')"
-            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'completed'))]"
-            + " | //*[(contains(@class,'modal') or contains(@class,'notification')"
-            + " or contains(@class,'popup') or contains(@class,'dialog'))"
-            + " and (contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')"
-            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'successful')"
-            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'completed'))]"));
-    for (WebElement item : success) {
-      if (item.isDisplayed()) {
-        return true;
+    try {
+      List<WebElement> messages = driver.findElements(By.xpath(
+          "//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"));
+      for (WebElement msg : messages) {
+        if (msg.isDisplayed()) {
+          String text = msg.getText().toLowerCase();
+          // Check if message contains "transfer successful"
+          if (text.contains("transfer successful")) {
+            return true;
+          }
+        }
       }
+      return false;
+    } catch (Exception e) {
+      return false;
     }
-    return false;
   }
 
   private static By inputByLabelOrPlaceholder(String label, String placeholderFragment) {
@@ -447,10 +497,18 @@ public class TransferFundsPage {
   }
 
   private void waitForAccountOptions() {
-    new org.openqa.selenium.support.ui.WebDriverWait(driver,
-        Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS))
-        .until(d -> !getFromAccountOptionElements().isEmpty()
-            || !d.findElements(accountOptionText).isEmpty());
+    try {
+      // Add initial wait for dropdown to render
+      Thread.sleep(800);
+      new org.openqa.selenium.support.ui.WebDriverWait(driver,
+          Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS))
+          .until(d -> !getFromAccountOptionElements().isEmpty()
+              || !d.findElements(accountOptionText).isEmpty());
+      // Additional wait for options to be fully loaded
+      Thread.sleep(800);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   private List<WebElement> getFromAccountOptionElements() {
@@ -498,12 +556,12 @@ public class TransferFundsPage {
 
   // TF005 - Field value getters with assertions
   public String getReceiverAccountValue() {
-    WebElement input = Waits.waitForVisible(driver, receiverAccountInput);
+    WebElement input = Waits.waitForVisible(driver, receiverAccountInputXpath);
     return input.getAttribute("value") != null ? input.getAttribute("value") : "";
   }
 
   public String getBeneficiaryNicknameValue() {
-    WebElement input = Waits.waitForVisible(driver, beneficiaryNicknameInput);
+    WebElement input = Waits.waitForVisible(driver, beneficiaryNicknameXpath);
     return input.getAttribute("value") != null ? input.getAttribute("value") : "";
   }
 
@@ -516,9 +574,26 @@ public class TransferFundsPage {
     }
   }
 
+  public String getRemarksValue() {
+    try {
+      WebElement input = new WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS))
+          .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"transferRemarks\"]")));
+      return input.getAttribute("value") != null ? input.getAttribute("value") : input.getText();
+    } catch (Exception e) {
+      // Try alternative
+      try {
+        WebElement input = new WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS))
+            .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[@name='remarks']")));
+        return input.getAttribute("value") != null ? input.getAttribute("value") : input.getText();
+      } catch (Exception e2) {
+        return "";
+      }
+    }
+  }
+
   private WebElement resolveAmountInput() {
     try {
-      return Waits.waitForVisible(driver, amountInput);
+      return Waits.waitForVisible(driver, amountInputXpath);
     } catch (Exception e1) {
       List<By> alternatives = List.of(
           By.xpath("//label[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'amount')]/following::input[1]"),
@@ -533,7 +608,7 @@ public class TransferFundsPage {
       } catch (Exception e2) {
         WebElement receiverInput = null;
         try {
-          receiverInput = Waits.waitForVisible(driver, receiverAccountInput);
+          receiverInput = Waits.waitForVisible(driver, receiverAccountInputXpath);
         } catch (Exception ignored) {
           // Ignore
         }
@@ -579,7 +654,7 @@ public class TransferFundsPage {
 
   public boolean isCategorySelected() {
     try {
-      WebElement dropdown = driver.findElement(categoryDropdown);
+      WebElement dropdown = driver.findElement(categoryDropdownXpath);
       return dropdown.isDisplayed();
     } catch (Exception e) {
       return false;
@@ -588,7 +663,7 @@ public class TransferFundsPage {
 
   public boolean isScheduleNowSelected() {
     try {
-      WebElement element = driver.findElement(scheduleNow);
+      WebElement element = driver.findElement(scheduleNowXpath);
       return element.isDisplayed() && element.isEnabled();
     } catch (Exception e) {
       return false;
@@ -596,17 +671,23 @@ public class TransferFundsPage {
   }
 
   public String getErrorMessage() {
-    List<WebElement> errors = driver.findElements(By.xpath(
-        "//*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'required')]"
-            + " | //*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'cannot')]"
-            + " | //*[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'error')]"
-            + " | //*[contains(@class,'toast') and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'error')]"));
-    for (WebElement error : errors) {
-      if (error.isDisplayed()) {
-        return error.getText();
+    try {
+      List<WebElement> messages = driver.findElements(By.xpath(
+          "//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"));
+      for (WebElement msg : messages) {
+        if (msg.isDisplayed()) {
+          String text = msg.getText();
+          String lowerText = text.toLowerCase();
+          // Return any message that's NOT about success
+          if (!lowerText.contains("transfer successful") && !lowerText.contains("success")) {
+            return text;
+          }
+        }
       }
+      return "";
+    } catch (Exception e) {
+      return "";
     }
-    return "";
   }
 
   // TF007 & TF008 - Account selection helpers
@@ -648,10 +729,34 @@ public class TransferFundsPage {
 
   public String getSelectedAccountNumber() {
     String selected = getSelectedFromAccount();
+    // Extract account number from the selected account
+    // Format is typically: "Account Type - Account Number (Balance)"
+    // We need to extract ONLY the account number part
+    if (selected.isEmpty()) {
+      return "";
+    }
+    
+    // Try to extract number between account type and opening parenthesis
+    String[] parts = selected.split("\\(");
+    if (parts.length > 0) {
+      String beforeBalance = parts[0].trim();
+      // Extract all numbers from this part
+      String[] tokens = beforeBalance.split("[-–]");
+      for (String token : tokens) {
+        String cleaned = token.replaceAll("[^0-9]", "").trim();
+        if (!cleaned.isEmpty()) {
+          return cleaned;
+        }
+      }
+    }
+    
+    // Fallback: extract all numbers
     String accountNumber = selected.replaceAll("[^0-9]", "").trim();
-    if (accountNumber.length() >= 6) {
+    if (!accountNumber.isEmpty() && accountNumber.length() >= 6) {
       return accountNumber;
     }
+    
+    // Last resort: try from options
     List<String> options = getFromAccountOptions();
     if (!options.isEmpty()) {
       String fallback = options.get(0).replaceAll("[^0-9]", "").trim();
@@ -677,6 +782,89 @@ public class TransferFundsPage {
       Waits.pauseAfterAction();
     } catch (Exception ignored) {
       // Ignore
+    }
+  }
+
+  // Screenshot and Message Capture Methods
+  public void captureSuccessScreenshot(String testName) {
+    waitForSuccessMessage();
+    if (isSuccessMessageVisible()) {
+      ScreenshotUtil.takeScreenshotOnSuccess(driver, testName);
+    }
+  }
+
+  public void captureFailureScreenshot(String testName) {
+    waitForErrorMessage();
+    if (isErrorMessageVisible()) {
+      ScreenshotUtil.takeScreenshotOnFailure(driver, testName);
+    }
+  }
+
+  public void captureMessageScreenshot(String testName) {
+    waitForSuccessOrErrorMessage();
+    if (isSuccessMessageVisible()) {
+      ScreenshotUtil.captureScreenshot(driver, testName + "_success_message");
+    } else if (isErrorMessageVisible()) {
+      ScreenshotUtil.captureScreenshot(driver, testName + "_error_message");
+    }
+  }
+
+  public String captureAndGetMessage(String testName) {
+    waitForSuccessOrErrorMessage();
+    String message = "";
+    if (isSuccessMessageVisible()) {
+      message = getSuccessMessage();
+      ScreenshotUtil.takeScreenshotOnSuccess(driver, testName);
+    } else if (isErrorMessageVisible()) {
+      message = getErrorMessage();
+      ScreenshotUtil.takeScreenshotOnFailure(driver, testName);
+    }
+    return message;
+  }
+
+  public String getSuccessMessage() {
+    List<WebElement> success = driver.findElements(By.xpath(
+        "//*[contains(@class,'toast') and contains(@class,'success')]"
+            + " | //*[(contains(@class,'alert') or @role='alert')"
+            + " and (contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')"
+            + " or contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'successful'))]"
+            + " | //*[(contains(@class,'modal') or contains(@class,'notification'))"
+            + " and contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'success')]"));
+    for (WebElement item : success) {
+      if (item.isDisplayed()) {
+        return item.getText();
+      }
+    }
+    return "";
+  }
+
+  private void waitForSuccessMessage() {
+    int maxWaitSeconds = 10;
+    for (int i = 0; i < maxWaitSeconds; i++) {
+      if (isSuccessMessageVisible()) {
+        return;
+      }
+      Waits.sleepMillis(500);
+    }
+  }
+
+  private void waitForErrorMessage() {
+    int maxWaitSeconds = 10;
+    for (int i = 0; i < maxWaitSeconds; i++) {
+      if (isErrorMessageVisible()) {
+        return;
+      }
+      Waits.sleepMillis(500);
+    }
+  }
+
+  private void waitForSuccessOrErrorMessage() {
+    int maxWaitSeconds = 10;
+    for (int i = 0; i < maxWaitSeconds; i++) {
+      if (isSuccessMessageVisible() || isErrorMessageVisible()) {
+        return;
+      }
+      Waits.sleepMillis(500);
     }
   }
 }
