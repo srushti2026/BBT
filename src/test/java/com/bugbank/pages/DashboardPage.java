@@ -13,6 +13,12 @@ public class DashboardPage {
   private final WebDriver driver;
 
   private final By transferHeader = By.xpath("//*[normalize-space()='Transfer Funds']");
+  private final By accountOverviewXpath = By.xpath("//*[@id=\"accounts\"]/div[1]/h2");
+  private final By transferMenuXpath = By.xpath("//*[@id=\"nav-transfer\"]/span[2]");
+  private final By savingsAccountBalanceXpath = By.xpath("//*[@id=\"accountList\"]/div[2]/div[1]/div[1]");
+  private final By transactionsNavXpath = By.xpath("//*[@id=\"nav-transactions\"]/span[2]");
+  private final By viewLast15Xpath = By.xpath("//*[@id=\"btn-view-last15\"]");
+  private final By firstTransactionXpath = By.xpath("//*[@id=\"txnResult\"]/div/table/tbody/tr[1]");
 
   public DashboardPage(WebDriver driver) {
     this.driver = driver;

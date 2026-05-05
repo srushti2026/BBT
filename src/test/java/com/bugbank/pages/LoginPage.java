@@ -2,7 +2,9 @@ package com.bugbank.pages;
 
 import com.bugbank.config.TestConfig;
 import com.bugbank.config.Waits;
+import com.bugbank.util.ElementFinder;
 import java.time.Duration;
+import java.util.Arrays;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +16,7 @@ import org.testng.Assert;
 public class LoginPage {
   private final WebDriver driver;
   // Updated XPaths as per specification
-  private final By loginButtonXpath = By.xpath("/html/body/div[3]/div[2]/button[1]");
+  private final By loginButtonXpath = By.xpath("//*[@id=\"btn-login\"]");
   private final By loginModalXpath = By.xpath("//*[@id=\"modal\"]/div");
   private final By emailInputXpath = By.xpath("//*[@id=\"email\"]");
   private final By passwordInputXpath = By.xpath("//*[@id=\"password\"]");
@@ -39,7 +41,13 @@ public class LoginPage {
   public void clickLoginButton() {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
     try {
-      WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(loginButtonXpath));
+      WebElement loginButton = ElementFinder.findFirstDisplayed(driver, Arrays.asList(
+          loginButtonXpath,
+          By.xpath("//button[contains(@id, 'login')]"),
+          By.xpath("//button[normalize-space()='Login']"),
+          By.xpath("//button[contains(text(), 'Login')]"),
+          By.xpath("//a[@id='btn-login']")),
+          Duration.ofSeconds(TestConfig.WAIT_TIMEOUT_SECONDS));
       ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginButton);
       Waits.pauseAfterAction();
       ((JavascriptExecutor) driver).executeScript("arguments[0].click();", loginButton);
