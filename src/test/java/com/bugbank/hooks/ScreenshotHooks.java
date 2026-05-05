@@ -1,9 +1,11 @@
 package com.bugbank.hooks;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
 import com.bugbank.config.DriverManager;
+import com.bugbank.steps.TransferFundsSteps;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +16,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ScreenshotHooks {
+  
+  private static Scenario currentScenario;
+  
+  @Before
+  public void beforeScenario(Scenario scenario) {
+    currentScenario = scenario;
+    System.out.println("Starting scenario: " + scenario.getName());
+  }
+  
+  public static Scenario getCurrentScenario() {
+    return currentScenario;
+  }
 
   @After
   public void captureAndAttachScreenshot(Scenario scenario) {

@@ -4,6 +4,7 @@ import com.bugbank.config.DriverManager;
 import com.bugbank.pages.DashboardPage;
 import com.bugbank.pages.LoginPage;
 import com.bugbank.pages.TransferFundsPage;
+import com.bugbank.hooks.ScreenshotHooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -580,6 +581,7 @@ public class TransferFundsSteps {
   public void userCapturesSavingsAccountBalanceWithScreenshot() {
     userCapturesSavingsAccountBalance();
     transferFundsPage.captureScreenshot(driver, "TF039_1_Initial_Balance");
+    attachScreenshotToReport("Initial Balance");
   }
 
   @When("user navigates to transactions section")
@@ -605,6 +607,7 @@ public class TransferFundsSteps {
       System.out.println("View Last 15 button not found: " + e.getMessage());
     }
     transferFundsPage.captureScreenshot(driver, "TF039_2_Transactions_Page");
+    attachScreenshotToReport("Transactions Page");
   }
 
   @Then("user can view transaction in transaction list")
@@ -642,6 +645,7 @@ public class TransferFundsSteps {
   @Then("capture transaction row screenshot")
   public void captureTransactionRowScreenshot() {
     transferFundsPage.captureScreenshot(driver, "TF039_3_Transaction_Row");
+    attachScreenshotToReport("Transaction Row");
   }
 
   @When("user navigates back to dashboard and waits {int} seconds")
@@ -665,6 +669,7 @@ public class TransferFundsSteps {
     }
     // Capture the final balance screenshot
     transferFundsPage.captureScreenshot(driver, "TF039_4_Final_Balance");
+    attachScreenshotToReport("Final Balance After Transfer");
     
     // Verify the balance has been reduced by the transfer amount
     String newBalance = dashboardPage.getSavingsAccountBalance();
@@ -685,6 +690,7 @@ public class TransferFundsSteps {
    */
   private void attachScreenshotToReport(String stepName) {
     try {
+      Scenario scenario = ScreenshotHooks.getCurrentScenario();
       if (scenario != null && driver != null) {
         byte[] screenshot = ((org.openqa.selenium.TakesScreenshot) driver).getScreenshotAs(
             org.openqa.selenium.OutputType.BYTES);
@@ -692,6 +698,8 @@ public class TransferFundsSteps {
           scenario.attach(screenshot, "image/png", stepName);
           System.out.println("Screenshot attached to report: " + stepName);
         }
+      } else {
+        System.out.println("Scenario is null, cannot attach screenshot");
       }
     } catch (Exception e) {
       System.out.println("Could not attach screenshot to report: " + e.getMessage());
