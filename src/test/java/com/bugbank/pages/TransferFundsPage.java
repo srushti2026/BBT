@@ -232,15 +232,16 @@ public class TransferFundsPage {
   }
 
   public void fillReceiverAccountId(String value) {
-    String sanitized = value == null ? "" : value.replaceAll("[^0-9]", "");
-    if (sanitized.isEmpty()) {
-      sanitized = "12"; // Updated default value
-    }
+    String sanitized = value == null ? "" : value.replaceAll("[^0-9-]", "");
+    // Note: Do NOT default to "12" - keep blank if input is blank
+    // This allows testing with empty receiver IDs
     WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(com.bugbank.config.TestConfig.WAIT_TIMEOUT_SECONDS));
     WebElement input = wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(receiverAccountInputXpath));
     input.clear();
     Waits.pauseAfterAction();
-    input.sendKeys(sanitized);
+    if (!sanitized.isEmpty()) {
+      input.sendKeys(sanitized);
+    }
     Waits.pauseAfterAction();
   }
 
@@ -407,35 +408,53 @@ public class TransferFundsPage {
       // Wait a bit for any message to appear
       Thread.sleep(1500);
       
-      // Look for any displayed message
-      List<WebElement> messages = driver.findElements(By.xpath(
-          "//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"));
+      // Try multiple XPath patterns to find messages
+      List<By> xpaths = List.of(
+          By.xpath("//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"),
+          By.xpath("//*[contains(@class,'message') or contains(@class,'notification')]"),
+          By.xpath("//div[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'error') or contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'invalid') or contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'minimum')]"),
+          By.xpath("//*[@id='message' or @id='error' or contains(@id, 'alert')]")
+      );
       
-      for (WebElement msg : messages) {
-        if (msg.isDisplayed()) {
-          String text = msg.getText();
-          if (text == null || text.isEmpty()) {
-            continue;
-          }
-          
-          String lowerText = text.toLowerCase();
-          
-          // If message contains "transfer successful", it's NOT an error
-          if (lowerText.contains("transfer successful") || lowerText.contains("successfully transferred")) {
-            continue;
-          }
-          
-          // Count actual letters to determine if it's a real message
-          int letterCount = 0;
-          for (char c : lowerText.toCharArray()) {
-            if (Character.isLetter(c)) {
-              letterCount++;
+      for (By xpath : xpaths) {
+        List<WebElement> messages = driver.findElements(xpath);
+        for (WebElement msg : messages) {
+          if (msg.isDisplayed()) {
+            String text = msg.getText();
+            if (text == null || text.isEmpty()) {
+              continue;
             }
-          }
-          
-          // If there are meaningful letters, it's an error message
-          if (letterCount > 3) {
-            return true;
+            
+            String lowerText = text.toLowerCase();
+            String cleanText = text.replaceAll("[^a-zA-Z0-9\\s]", " ").toLowerCase();
+            
+            // If message contains "transfer successful", it's NOT an error
+            if (lowerText.contains("transfer successful") || lowerText.contains("successfully transferred") ||
+                cleanText.contains("transfer successful") || cleanText.contains("successfully transferred")) {
+              continue;
+            }
+            
+            // Check for error keywords
+            if (lowerText.contains("error") || lowerText.contains("invalid") || 
+                lowerText.contains("minimum") || lowerText.contains("blocked") ||
+                lowerText.contains("failed") || lowerText.contains("insufficient") ||
+                lowerText.contains("cannot") || cleanText.contains("error") || 
+                cleanText.contains("invalid") || cleanText.contains("minimum")) {
+              return true;
+            }
+            
+            // Count actual letters to determine if it's a real message
+            int letterCount = 0;
+            for (char c : cleanText.toCharArray()) {
+              if (Character.isLetter(c)) {
+                letterCount++;
+              }
+            }
+            
+            // If there are meaningful letters and it's not a success message, it's an error message
+            if (letterCount > 3) {
+              return true;
+            }
           }
         }
       }
@@ -447,22 +466,32 @@ public class TransferFundsPage {
 
   public boolean isSuccessMessageVisible() {
     try {
-      // Look for any displayed message
-      List<WebElement> messages = driver.findElements(By.xpath(
-          "//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"));
-      for (WebElement msg : messages) {
-        if (msg.isDisplayed()) {
-          String text = msg.getText();
-          if (text == null || text.isEmpty()) {
-            continue;
-          }
-          
-          String lowerText = text.toLowerCase();
-          
-          // Check if message contains success keywords
-          if (lowerText.contains("transfer successful") || lowerText.contains("successfully transferred") 
-              || lowerText.contains("success")) {
-            return true;
+      // Try multiple XPath patterns to find messages
+      List<By> xpaths = List.of(
+          By.xpath("//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"),
+          By.xpath("//*[contains(@class,'message') or contains(@class,'notification')]"),
+          By.xpath("//div[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'successful') or contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'success')]"),
+          By.xpath("//*[@id='message' or @id='success' or contains(@id, 'alert')]")
+      );
+      
+      for (By xpath : xpaths) {
+        List<WebElement> messages = driver.findElements(xpath);
+        for (WebElement msg : messages) {
+          if (msg.isDisplayed()) {
+            String text = msg.getText();
+            if (text == null || text.isEmpty()) {
+              continue;
+            }
+            
+            String lowerText = text.toLowerCase();
+            String cleanText = text.replaceAll("[^a-zA-Z0-9\\s]", " ").toLowerCase();
+            
+            // Check if message contains success keywords (handles special characters)
+            if (lowerText.contains("transfer successful") || lowerText.contains("successfully transferred") || 
+                lowerText.contains("success") || cleanText.contains("transfer successful") || 
+                cleanText.contains("successfully transferred") || cleanText.contains("success")) {
+              return true;
+            }
           }
         }
       }
