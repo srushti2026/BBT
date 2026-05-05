@@ -1,6 +1,6 @@
-Feature: TF-024 RTGS minimum amount validation
+Feature: SelfTransfer Self-transfer prevention
 
-  Scenario: RTGS amount slightly below minimum
+  Scenario: Prevent self-transfer using the same account
     Given user navigates to the application URL
     And login page is loaded with logo and login button visible
     When user clicks on login button
@@ -14,12 +14,15 @@ Feature: TF-024 RTGS minimum amount validation
     And transfer page layout is complete
     When user opens FROM ACCOUNT dropdown
     And user selects first available account from dropdown with assertion
-    And user enters RECEIVER ACCOUNT ID "12" with assertion
+    Then verify FROM ACCOUNT has been selected
+    When user enters RECEIVER ACCOUNT ID with same account number with assertion
     And user enters BENEFICIARY NICKNAME "John Doe" with assertion
-    And user selects TRANSFER TYPE "RTGS" with assertion
-    And user enters AMOUNT "199999" with assertion
+    And user selects TRANSFER TYPE "NEFT" with assertion
+    And user enters AMOUNT "5000" with assertion
     And user selects CATEGORY "Friends & Family" with assertion
     And user selects SCHEDULE "Now" with assertion
     And user enters REMARKS "Rent" with assertion for description field
     And user submits transfer
-    Then transfer is blocked due to RTGS minimum amount
+    Then error message indicates self-transfer is not allowed
+    And no success message appears
+    And verify transaction was not completed

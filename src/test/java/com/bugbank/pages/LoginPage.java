@@ -14,7 +14,7 @@ import org.testng.Assert;
 public class LoginPage {
   private final WebDriver driver;
   // Updated XPaths as per specification
-  private final By loginButtonXpath = By.xpath("//*[@id=\"btn-login\"]");
+  private final By loginButtonXpath = By.xpath("/html/body/div[3]/div[2]/button[1]");
   private final By loginModalXpath = By.xpath("//*[@id=\"modal\"]/div");
   private final By emailInputXpath = By.xpath("//*[@id=\"email\"]");
   private final By passwordInputXpath = By.xpath("//*[@id=\"password\"]");

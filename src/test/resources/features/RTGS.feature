@@ -1,6 +1,6 @@
-Feature: TF-025 RTGS above minimum amount validation
+Feature: RTGS amount validation with multiple values
 
-  Scenario: RTGS amount above minimum
+  Scenario Outline: RTGS transfer with various amounts
     Given user navigates to the application URL
     And login page is loaded with logo and login button visible
     When user clicks on login button
@@ -17,9 +17,15 @@ Feature: TF-025 RTGS above minimum amount validation
     And user enters RECEIVER ACCOUNT ID "12" with assertion
     And user enters BENEFICIARY NICKNAME "John Doe" with assertion
     And user selects TRANSFER TYPE "RTGS" with assertion
-    And user enters AMOUNT "205000" with assertion
+    And user enters AMOUNT "<amount>" with assertion
     And user selects CATEGORY "Friends & Family" with assertion
     And user selects SCHEDULE "Now" with assertion
     And user enters REMARKS "Rent" with assertion for description field
     And user submits transfer
-    Then transfer is successful
+    Then verify transfer result as "<result>"
+
+    Examples:
+      | amount | result      |
+      | 200000 | successful  |
+      | 199999 | blocked     |
+      | 205000 | successful  |

@@ -4,13 +4,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-    features = "src/test/resources/features/TF-02678.feature",
+    features = "src/test/resources/features/IMPS.feature",
     glue = {"com.bugbank.steps"},
     plugin = {
       "pretty",
-      "json:target/cucumber/TF-02678.json",
-      "html:target/cucumber/TF-02678.html"
+      "json:target/cucumber/IMPS.json",
+      "html:target/cucumber/IMPS.html"
     }
 )
-public class TF02678Runner extends AbstractTestNGCucumberTests {
+public class IMPSRunner extends AbstractTestNGCucumberTests {
 }

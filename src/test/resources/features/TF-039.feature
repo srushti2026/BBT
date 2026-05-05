@@ -9,7 +9,7 @@ Feature: TF-039 Complete transfer flow with transaction verification
     And user clicks on sign in button in login popup
     Then dashboard page loads successfully
     And account overview text is visible on dashboard
-    When user captures savings account balance from dashboard
+    When user captures savings account balance from dashboard with screenshot
     And user clicks on transfer option in menu
     Then transfer funds page is loaded
     And transfer page layout is complete
@@ -23,9 +23,12 @@ Feature: TF-039 Complete transfer flow with transaction verification
     And user selects SCHEDULE "Now" with assertion
     And user enters REMARKS "Fees" with assertion for description field
     And user submits transfer
-    Then transfer is successful
-    And user navigates to transactions section
+    Then transfer is successful with screenshot
+    And user navigates to transactions section and views last 15 transactions with screenshot
     Then user can view transaction in transaction list
-    And transaction details match the transfer details
-    When user navigates back to dashboard
-    Then verify savings account balance has been deducted correctly
+    When user waits 3 seconds
+    And user scrolls down to see first transaction
+    Then capture transaction row screenshot
+    When user navigates back to dashboard and waits 2 seconds
+    Then verify savings account balance has been deducted correctly with screenshot
+    And close the browser

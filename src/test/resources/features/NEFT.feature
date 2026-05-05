@@ -1,6 +1,6 @@
-Feature: TF-028 Amount with decimal values
+Feature: NEFT amount validation with decimal and boundary testing
 
-  Scenario: Decimal amount is accepted
+  Scenario Outline: NEFT transfer with various amount formats
     Given user navigates to the application URL
     And login page is loaded with logo and login button visible
     When user clicks on login button
@@ -17,9 +17,16 @@ Feature: TF-028 Amount with decimal values
     And user enters RECEIVER ACCOUNT ID "12" with assertion
     And user enters BENEFICIARY NICKNAME "John Doe" with assertion
     And user selects TRANSFER TYPE "NEFT" with assertion
-    And user enters AMOUNT "5000.96" with assertion
+    And user enters AMOUNT "<amount>" with assertion
     And user selects CATEGORY "Friends & Family" with assertion
     And user selects SCHEDULE "Now" with assertion
     And user enters REMARKS "Rent" with assertion for description field
     And user submits transfer
-    Then transfer is successful
+    Then verify NEFT transfer result as "<result>" for amount "<amount>"
+
+    Examples:
+      | amount  | result      |
+      | 10000   | successful  |
+      | 0       | failed      |
+      | -5000   | failed      |
+      | 5000.56 | successful  |

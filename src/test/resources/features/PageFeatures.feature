@@ -1,4 +1,4 @@
-Feature: TF-0003567 Combined FROM ACCOUNT and Account Format Validation
+Feature: PageFeatures Combined FROM ACCOUNT and Account Format Validation
 
   Scenario: Complete FROM ACCOUNT validation including format and multiple accounts
     Given user navigates to the application URL

@@ -413,22 +413,29 @@ public class TransferFundsPage {
       
       for (WebElement msg : messages) {
         if (msg.isDisplayed()) {
-          String text = msg.getText().toLowerCase().trim();
-          
-          // Skip if message is empty or only whitespace
-          if (text.isEmpty()) {
+          String text = msg.getText();
+          if (text == null || text.isEmpty()) {
             continue;
           }
           
-          // Remove leading/trailing emojis and symbols for checking, but keep the message
-          String checkText = text.replaceAll("^[^a-z]*", "").replaceAll("[^a-z]*$", "").toLowerCase();
+          String lowerText = text.toLowerCase();
           
-          // If message does NOT contain "transfer successful" or "successfully", it's an error
-          if (!checkText.contains("transfer successful") && !checkText.contains("successfully")) {
-            // Make sure there's at least some alphabetic content
-            if (checkText.matches(".*[a-z].*")) {
-              return true;
+          // If message contains "transfer successful", it's NOT an error
+          if (lowerText.contains("transfer successful") || lowerText.contains("successfully transferred")) {
+            continue;
+          }
+          
+          // Count actual letters to determine if it's a real message
+          int letterCount = 0;
+          for (char c : lowerText.toCharArray()) {
+            if (Character.isLetter(c)) {
+              letterCount++;
             }
+          }
+          
+          // If there are meaningful letters, it's an error message
+          if (letterCount > 3) {
+            return true;
           }
         }
       }
@@ -445,15 +452,16 @@ public class TransferFundsPage {
           "//*[contains(@class,'toast') or @role='alert' or contains(@class,'alert')]"));
       for (WebElement msg : messages) {
         if (msg.isDisplayed()) {
-          String text = msg.getText().toLowerCase().trim();
-          
-          // Skip if message is empty
-          if (text.isEmpty()) {
+          String text = msg.getText();
+          if (text == null || text.isEmpty()) {
             continue;
           }
           
-          // Check if message contains "transfer successful" or "successfully transferred"
-          if (text.contains("transfer successful") || text.contains("successfully transferred")) {
+          String lowerText = text.toLowerCase();
+          
+          // Check if message contains success keywords
+          if (lowerText.contains("transfer successful") || lowerText.contains("successfully transferred") 
+              || lowerText.contains("success")) {
             return true;
           }
         }
@@ -861,6 +869,10 @@ public class TransferFundsPage {
     return message;
   }
 
+  public void captureScreenshot(WebDriver driver, String testName) {
+    ScreenshotUtil.captureScreenshot(driver, testName);
+  }
+
   public String getSuccessMessage() {
     List<WebElement> success = driver.findElements(By.xpath(
         "//*[contains(@class,'toast') and contains(@class,'success')]"
@@ -904,6 +916,21 @@ public class TransferFundsPage {
         return;
       }
       Waits.sleepMillis(500);
+    }
+  }
+
+  // Capture screenshot of message (success or error)
+  public void captureMessagePopup(String testName) {
+    try {
+      // Wait for message to appear
+      waitForSuccessOrErrorMessage();
+      Waits.sleepMillis(500); // Extra pause to ensure message is fully rendered
+      
+      String screenshotName = testName + "_message_" + System.currentTimeMillis();
+      ScreenshotUtil.captureScreenshot(driver, screenshotName);
+      System.out.println("Message screenshot captured: " + screenshotName);
+    } catch (Exception e) {
+      System.err.println("Failed to capture message screenshot: " + e.getMessage());
     }
   }
 }

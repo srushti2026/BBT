@@ -4,13 +4,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-    features = "src/test/resources/features/TF-02123.feature",
+    features = "src/test/resources/features/NEFT.feature",
     glue = {"com.bugbank.steps"},
     plugin = {
       "pretty",
-      "json:target/cucumber/TF-02123.json",
-      "html:target/cucumber/TF-02123.html"
+      "json:target/cucumber/NEFT.json",
+      "html:target/cucumber/NEFT.html"
     }
 )
-public class TF02123Runner extends AbstractTestNGCucumberTests {
+public class NEFTRunner extends AbstractTestNGCucumberTests {
 }

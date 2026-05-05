@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -414,6 +415,8 @@ public class TransferFundsSteps {
   @Then("transfer is successful")
   public void transferIsSuccessful() {
     waitForSuccessMessage();
+    // Capture screenshot of success message
+    transferFundsPage.captureMessagePopup("transfer_successful");
     Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
         "Success message should appear for a successful transfer");
     Assert.assertFalse(transferFundsPage.isErrorMessageVisible(),
@@ -482,6 +485,9 @@ public class TransferFundsSteps {
     System.out.println("All visible messages: " + allMessages);
     System.out.println("Is success visible: " + transferFundsPage.isSuccessMessageVisible());
     System.out.println("Is error visible: " + transferFundsPage.isErrorMessageVisible());
+    
+    // Capture screenshot of message
+    transferFundsPage.captureMessagePopup("transfer_result_" + result);
     
     if ("successful".equalsIgnoreCase(result)) {
       Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
@@ -568,6 +574,12 @@ public class TransferFundsSteps {
     // Store in scenario context (if using ScenarioContext) or instance variable
   }
 
+  @When("user captures savings account balance from dashboard with screenshot")
+  public void userCapturesSavingsAccountBalanceWithScreenshot() {
+    userCapturesSavingsAccountBalance();
+    transferFundsPage.captureScreenshot(driver, "TF039_1_Initial_Balance");
+  }
+
   @When("user navigates to transactions section")
   public void userNavigatesToTransactionsSection() {
     dashboardPage.navigateToTransactions();
@@ -579,6 +591,20 @@ public class TransferFundsSteps {
     }
   }
 
+  @When("user navigates to transactions section and views last 15 transactions with screenshot")
+  public void userNavigatesToTransactionsSectionWithScreenshot() {
+    userNavigatesToTransactionsSection();
+    // Click "View Last 15" button
+    try {
+      WebElement viewLast15Btn = driver.findElement(By.xpath("//*[@id='btn-view-last15']"));
+      viewLast15Btn.click();
+      Thread.sleep(1500);
+    } catch (Exception e) {
+      System.out.println("View Last 15 button not found: " + e.getMessage());
+    }
+    transferFundsPage.captureScreenshot(driver, "TF039_2_Transactions_Page");
+  }
+
   @Then("user can view transaction in transaction list")
   public void userCanViewTransactionInList() {
     // Wait for transactions to load
@@ -587,15 +613,76 @@ public class TransferFundsSteps {
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
     }
-    // Verify transaction appears in the list - click "View Last 15" button
-    try {
-      WebElement viewLast15Btn = driver.findElement(By.xpath("//*[@id='btn-view-last15']"));
-      viewLast15Btn.click();
-      Thread.sleep(1500);
-    } catch (Exception e) {
-      System.out.println("View Last 15 button not found: " + e.getMessage());
-    }
     System.out.println("Transaction verified in list");
+  }
+
+  @When("user waits {int} seconds")
+  public void userWaits(int seconds) {
+    try {
+      Thread.sleep(seconds * 1000L);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+  }
+
+  @When("user scrolls down to see first transaction")
+  public void userScrollsDownToSeeFirstTransaction() {
+    try {
+      // Scroll down to show first transaction row
+      JavascriptExecutor js = (JavascriptExecutor) driver;
+      js.executeScript("window.scrollBy(0, 300);");
+      Thread.sleep(500);
+    } catch (Exception e) {
+      System.out.println("Error scrolling: " + e.getMessage());
+    }
+  }
+
+  @Then("capture transaction row screenshot")
+  public void captureTransactionRowScreenshot() {
+    transferFundsPage.captureScreenshot(driver, "TF039_3_Transaction_Row");
+  }
+
+  @When("user navigates back to dashboard and waits {int} seconds")
+  public void userNavigatesBackToDashboardAndWaits(int seconds) {
+    try {
+      // Click back button or navigate back
+      driver.navigate().back();
+      Thread.sleep(2000);
+    } catch (Exception e) {
+      System.out.println("Error navigating back: " + e.getMessage());
+    }
+  }
+
+  @Then("verify savings account balance has been deducted correctly with screenshot")
+  public void verifySavingsAccountDeductedWithScreenshot() {
+    // Wait for dashboard to fully load
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+    // Capture the final balance screenshot
+    transferFundsPage.captureScreenshot(driver, "TF039_4_Final_Balance");
+    
+    // Verify the balance has been reduced by the transfer amount
+    String newBalance = dashboardPage.getSavingsAccountBalance();
+    System.out.println("New Savings Account Balance: " + newBalance);
+    Assert.assertNotNull(newBalance, "Balance should be retrieved");
+  }
+
+  @Then("transfer is successful with screenshot")
+  public void transferIsSuccessfulWithScreenshot() {
+    transferFundsPage.captureScreenshot(driver, "TF039_0_Transfer_Success_Message");
+    transferIsSuccessful();
+  }
+
+  @Then("close the browser")
+  public void closeBrowser() {
+    try {
+      driver.quit();
+    } catch (Exception e) {
+      System.out.println("Error closing browser: " + e.getMessage());
+    }
   }
 
   @Then("transaction details match the transfer details")
@@ -631,5 +718,24 @@ public class TransferFundsSteps {
     String newBalance = dashboardPage.getSavingsAccountBalance();
     System.out.println("New Savings Account Balance: " + newBalance);
     Assert.assertNotNull(newBalance, "Balance should be retrieved");
+  }
+
+  @Then("verify transfer result for receiver ID {string} should be {string}")
+  public void verifyTransferResultForReceiverId(String receiverId, String expectedResult) {
+    waitForSuccessOrErrorMessage();
+    String allMessages = transferFundsPage.getAllVisibleMessages();
+    System.out.println("Receiver ID: " + receiverId + " | Expected: " + expectedResult + " | Messages: " + allMessages);
+    
+    if ("successful".equalsIgnoreCase(expectedResult)) {
+      // For valid receiver ID (12), transfer should be successful
+      Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
+          "Transfer should be successful for valid receiver ID: " + receiverId + ". Messages: " + allMessages);
+    } else if ("invalid".equalsIgnoreCase(expectedResult)) {
+      // For invalid receiver IDs (empty, 0, -34), transfer should fail
+      Assert.assertTrue(transferFundsPage.isErrorMessageVisible(),
+          "Error message should appear for invalid receiver ID: " + receiverId + ". Messages: " + allMessages);
+      Assert.assertFalse(transferFundsPage.isSuccessMessageVisible(),
+          "Transfer should not succeed with invalid receiver ID: " + receiverId + ". Messages: " + allMessages);
+    }
   }
 }
