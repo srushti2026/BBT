@@ -5,11 +5,12 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
     features = "src/test/resources/features/TF-039.feature",
-    glue = {"com.bugbank.steps"},
+    glue = {"com.bugbank.steps", "com.bugbank.hooks"},
     plugin = {
       "pretty",
       "json:target/cucumber/TF-039.json",
       "html:target/cucumber/TF-039.html"
+
     }
 )
 public class TF039Runner extends AbstractTestNGCucumberTests {

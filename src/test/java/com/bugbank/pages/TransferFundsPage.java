@@ -902,6 +902,19 @@ public class TransferFundsPage {
     ScreenshotUtil.captureScreenshot(driver, testName);
   }
 
+  /**
+   * Captures screenshot and returns it as byte array for embedding in reports
+   */
+  public byte[] captureScreenshotAsBytes(String testName) {
+    try {
+      return ((org.openqa.selenium.TakesScreenshot) driver).getScreenshotAs(
+          org.openqa.selenium.OutputType.BYTES);
+    } catch (Exception e) {
+      System.err.println("Failed to capture screenshot as bytes: " + e.getMessage());
+      return null;
+    }
+  }
+
   public String getSuccessMessage() {
     List<WebElement> success = driver.findElements(By.xpath(
         "//*[contains(@class,'toast') and contains(@class,'success')]"

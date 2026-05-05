@@ -7,6 +7,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.apache.commons.io.FileUtils;
+import java.util.Base64;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ScreenshotUtil {
   private static final String SCREENSHOT_DIR = "target/screenshots/";
@@ -41,6 +44,32 @@ public class ScreenshotUtil {
 
   public static String captureScreenshot(WebDriver driver) {
     return captureScreenshot(driver, "screenshot");
+  }
+
+  /**
+   * Captures screenshot and returns base64 encoded image string for embedding in reports
+   */
+  public static String captureScreenshotAsBase64(WebDriver driver, String testName) {
+    try {
+      // Take screenshot as bytes
+      byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+      
+      // Also save the file for reference
+      File screenshotDir = new File(SCREENSHOT_DIR);
+      if (!screenshotDir.exists()) {
+        screenshotDir.mkdirs();
+      }
+      String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS").format(new Date());
+      String filename = SCREENSHOT_DIR + testName + "_" + timestamp + ".png";
+      Files.write(Paths.get(filename), screenshotBytes);
+      System.out.println("Screenshot captured: " + filename);
+      
+      // Return base64 encoded string
+      return Base64.getEncoder().encodeToString(screenshotBytes);
+    } catch (Exception e) {
+      System.err.println("Failed to capture screenshot as base64: " + e.getMessage());
+      return null;
+    }
   }
 
   public static void takeScreenshotOnSuccess(WebDriver driver, String testName) {

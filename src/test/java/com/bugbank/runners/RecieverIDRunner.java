@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
     features = "src/test/resources/features/RecieverID.feature",
-    glue = {"com.bugbank.steps"},
+    glue = {"com.bugbank.steps", "com.bugbank.hooks"},
     plugin = {
       "pretty",
       "json:target/cucumber/RecieverID.json",

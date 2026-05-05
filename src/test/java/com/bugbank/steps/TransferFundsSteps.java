@@ -7,6 +7,7 @@ import com.bugbank.pages.TransferFundsPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.Scenario;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,6 +20,12 @@ public class TransferFundsSteps {
   private final TransferFundsPage transferFundsPage = new TransferFundsPage(driver);
   private final DashboardPage dashboardPage = new DashboardPage(driver);
   private final LoginPage loginPage = new LoginPage(driver);
+  private Scenario scenario;
+
+  // Store scenario for later use in screenshot attachment
+  public void setScenario(Scenario scenario) {
+    this.scenario = scenario;
+  }
 
   @Given("user navigates to the application URL")
   public void userNavigatesToApplicationUrl() {
@@ -668,9 +675,28 @@ public class TransferFundsSteps {
   @Then("transfer is successful with screenshot")
   public void transferIsSuccessfulWithScreenshot() {
     transferFundsPage.captureScreenshot(driver, "TF039_0_Transfer_Success_Message");
+    // Attach screenshot to Cucumber report if scenario is available
+    attachScreenshotToReport("Transfer Success Message");
     transferIsSuccessful();
   }
 
+  /**
+   * Helper method to attach screenshot to Cucumber report for embedding in HTML
+   */
+  private void attachScreenshotToReport(String stepName) {
+    try {
+      if (scenario != null && driver != null) {
+        byte[] screenshot = ((org.openqa.selenium.TakesScreenshot) driver).getScreenshotAs(
+            org.openqa.selenium.OutputType.BYTES);
+        if (screenshot != null && screenshot.length > 0) {
+          scenario.attach(screenshot, "image/png", stepName);
+          System.out.println("Screenshot attached to report: " + stepName);
+        }
+      }
+    } catch (Exception e) {
+      System.out.println("Could not attach screenshot to report: " + e.getMessage());
+    }
+  }
   @Then("close the browser")
   public void closeBrowser() {
     try {
