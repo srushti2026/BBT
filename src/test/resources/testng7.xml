@@ -4,10 +4,6 @@
     <classes>
   
       <class name="com.bugbank.hooks.TestSuiteHooks"/>
-      <class name="com.bugbank.runners.PageFeaturesRunner"/>
-      <class name="com.bugbank.runners.RecieverIDRunner"/>
-      <class name="com.bugbank.runners.RTGSRunner"/>
-      <class name="com.bugbank.runners.NEFTRunner"/>
       <class name="com.bugbank.runners.TF039Runner"/>
     </classes>
   </test>

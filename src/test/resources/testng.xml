@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd">
+
 <suite name="BugBank-TransferFunds" verbose="1" parallel="none">
   <test name="TransferFunds-Suite">
     <classes>

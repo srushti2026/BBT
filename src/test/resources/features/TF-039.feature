@@ -15,7 +15,7 @@ Feature: TF-039 Complete transfer flow with transaction verification
     And transfer page layout is complete
     When user opens FROM ACCOUNT dropdown
     And user selects first available account from dropdown with assertion
-    And user enters RECEIVER ACCOUNT ID "12" with assertion
+    And user enters RECEIVER ACCOUNT ID "20" with assertion
     And user enters BENEFICIARY NICKNAME "John Doe" with assertion
     And user selects TRANSFER TYPE "NEFT" with assertion
     And user enters AMOUNT "120000" with assertion

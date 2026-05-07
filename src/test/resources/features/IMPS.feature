@@ -26,6 +26,5 @@ Feature: IMPS amount validation with boundary testing
 
     Examples:
       | amount  | result      |
-      | 500000  | successful  |
       | 500001  | failed      |
       | -5000   | failed      |

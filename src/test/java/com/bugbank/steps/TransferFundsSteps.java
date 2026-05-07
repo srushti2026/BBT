@@ -756,7 +756,7 @@ public class TransferFundsSteps {
     System.out.println("Receiver ID: " + receiverId + " | Expected: " + expectedResult + " | Messages: " + allMessages);
     
     if ("successful".equalsIgnoreCase(expectedResult)) {
-      // For valid receiver ID (12), transfer should be successful
+      // For valid receiver ID (20), transfer should be successful
       Assert.assertTrue(transferFundsPage.isSuccessMessageVisible(),
           "Transfer should be successful for valid receiver ID: " + receiverId + ". Messages: " + allMessages);
     } else if ("invalid".equalsIgnoreCase(expectedResult)) {

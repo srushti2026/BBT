@@ -3,13 +3,18 @@
 <suite name="Failed suite [BugBank-TransferFunds]">
   <test thread-count="5" name="TransferFunds-Suite(failed)">
     <classes>
-      <class name="com.bugbank.runners.TF02678Runner">
+      <class name="com.bugbank.runners.TF039Runner">
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0 3 4"/>
+          <include name="runScenario"/>
         </methods>
-      </class> <!-- com.bugbank.runners.TF02678Runner -->
+      </class> <!-- com.bugbank.runners.TF039Runner -->
+      <class name="com.bugbank.hooks.TestSuiteHooks">
+        <methods>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- com.bugbank.hooks.TestSuiteHooks -->
     </classes>
   </test> <!-- TransferFunds-Suite(failed) -->
 </suite> <!-- Failed suite [BugBank-TransferFunds] -->

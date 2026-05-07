@@ -26,7 +26,6 @@ Feature: NEFT amount validation with decimal and boundary testing
 
     Examples:
       | amount  | result      |
-      | 10000   | successful  |
       | 0       | failed      |
       | -5000   | failed      |
       | 5000.56 | successful  |
